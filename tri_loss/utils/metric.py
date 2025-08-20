@@ -178,3 +178,53 @@ def mean_ap(
   if average:
     return float(np.sum(aps)) / np.sum(is_valid_query)
   return aps, is_valid_query
+
+
+def mean_inp(
+    distmat,
+    query_ids=None,
+    gallery_ids=None,
+    query_cams=None,
+    gallery_cams=None,
+    average=True):
+
+    """
+    Compute mean Inverse Negative Penalty (mINP) for person re-identification.
+    Args:
+      distmat: numpy array with shape [num_query, num_gallery]
+      query_ids: numpy array with shape [num_query]
+      gallery_ids: numpy array with shape [num_gallery]
+      query_cams: numpy array with shape [num_query]
+      gallery_cams: numpy array with shape [num_gallery]
+      average: whether to average the results across queries
+    Returns:
+      mINP: scalar if average=True, else array of INP for each query
+    """
+    assert isinstance(distmat, np.ndarray)
+    assert isinstance(query_ids, np.ndarray)
+    assert isinstance(gallery_ids, np.ndarray)
+    assert isinstance(query_cams, np.ndarray)
+    assert isinstance(gallery_cams, np.ndarray)
+
+    m, n = distmat.shape
+    indices = np.argsort(distmat, axis=1)
+    matches = (gallery_ids[indices] == query_ids[:, np.newaxis])
+    inps = np.zeros(m)
+    is_valid_query = np.zeros(m)
+    for i in range(m):
+
+      # Filter out the same id and same camera
+      valid = ((gallery_ids[indices[i]] != query_ids[i]) |
+                 (gallery_cams[indices[i]] != query_cams[i]))
+      if not np.any(matches[i, valid]):
+        continue
+      is_valid_query[i] = 1
+      # Find the rank of the first correct match
+      match_idx = np.where(matches[i, valid])[0]
+      if len(match_idx) == 0:
+        continue
+      first_match_rank = match_idx[0] + 1  # ranks are 1-based
+      inps[i] = 1.0 / first_match_rank
+    if average:
+      return float(np.sum(inps)) / np.sum(is_valid_query)
+    return inps, is_valid_query
