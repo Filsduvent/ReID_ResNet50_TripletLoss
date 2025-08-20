@@ -11,7 +11,7 @@ from zipfile import ZipFile
 import os.path as osp
 import sys
 import h5py
-from scipy.misc import imsave
+import imageio
 from itertools import chain
 
 from tri_loss.utils.utils import may_make_dir
@@ -33,7 +33,8 @@ def save_images(mat_file, save_dir, new_im_name_tmpl):
       im = deref(mat, ref)
       if im.size == 0 or im.ndim < 2: break
       fname = new_im_name_tmpl.format(pid, cam, i)
-      imsave(osp.join(im_dir, fname), im)
+      imageio.imwrite(osp.join(im_dir, fname), im)
+      # scipy.misc.imsave(osp.join(im_dir, fname), im)
 
   mat = h5py.File(mat_file, 'r')
   labeled_im_dir = osp.join(save_dir, 'labeled/images')

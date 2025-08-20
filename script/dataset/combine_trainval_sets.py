@@ -56,7 +56,8 @@ def combine_trainval_sets(
   new_start_id = 0
   for im_dir, partition_file in zip(im_dirs, partition_files):
     partitions = load_pickle(partition_file)
-    im_paths = [ospj(im_dir, n) for n in partitions['trainval_im_names']]
+    im_paths = [ospj(im_dir, n.decode('utf-8') if isinstance(n, bytes) else n) for n in partitions['trainval_im_names']]
+    #im_paths = [ospj(im_dir, n) for n in partitions['trainval_im_names']]
     im_paths.sort()
     new_im_names_, id_mapping = move_ims(
       im_paths, new_im_dir, parse_im_name, new_im_name_tmpl, new_start_id)
