@@ -39,46 +39,58 @@ from tri_loss.utils.utils import adjust_lr_staircase
 class Config(object):
   def __init__(self):
 
+    #1.Parsing Command Line Arguments
+
     parser = argparse.ArgumentParser()
-    parser.add_argument('-d', '--sys_device_ids', type=eval, default=(0,))
-    parser.add_argument('-r', '--run', type=int, default=1)
-    parser.add_argument('--set_seed', type=str2bool, default=False)
+    parser.add_argument('-d', '--sys_device_ids', type=eval, default=(0,)) #which GPU(s) to use(eg.,(0,) for first GPU only)
+    parser.add_argument('-r', '--run', type=int, default=1) # Run ID (to separate logs/checkpoints across multiple training sessions)
+    parser.add_argument('--set_seed', type=str2bool, default=False) #	Whether to use a fixed seed for reproducibility
     parser.add_argument('--dataset', type=str, default='market1501',
-                        choices=['market1501', 'cuhk03', 'duke', 'combined'])
+                        choices=['market1501', 'cuhk03', 'duke', 'combined']) #	Which dataset to use (Market1501, CUHK03, Duke, or Combined)
     parser.add_argument('--trainset_part', type=str, default='trainval',
-                        choices=['trainval', 'train'])
+                        choices=['trainval', 'train']) # 	Whether to use only train or trainval for training
 
-    parser.add_argument('--resize_h_w', type=eval, default=(256, 128))
+    #2.Image preprocessing Parameters
+
+    parser.add_argument('--resize_h_w', type=eval, default=(256, 128)) #Resize images to this shape before training
     # These several only for training set
-    parser.add_argument('--crop_prob', type=float, default=0)
-    parser.add_argument('--crop_ratio', type=float, default=1)
-    parser.add_argument('--mirror', type=str2bool, default=True)
-    parser.add_argument('--ids_per_batch', type=int, default=32)
-    parser.add_argument('--ims_per_id', type=int, default=4)
+    parser.add_argument('--crop_prob', type=float, default=0) #Probability to crop image
+    parser.add_argument('--crop_ratio', type=float, default=1) #How much of the image to crop (e.g., 1 means no crop)
+    parser.add_argument('--mirror', type=str2bool, default=True) #Whether to randomly mirror (flip) images horizontally
+    parser.add_argument('--ids_per_batch', type=int, default=32) #	Number of person IDs per batch (for batch hard triplet sampling)
+    parser.add_argument('--ims_per_id', type=int, default=4) #Number of images per person ID in each batch
 
-    parser.add_argument('--log_to_file', type=str2bool, default=True)
-    parser.add_argument('--steps_per_log', type=int, default=20)
-    parser.add_argument('--epochs_per_val', type=int, default=1e10)
+    #3.Logging and evaluation configs
+
+    parser.add_argument('--log_to_file', type=str2bool, default=True) #	Whether to redirect stdout/stderr and log training
+    parser.add_argument('--steps_per_log', type=int, default=20) # Log training progress every N steps
+    parser.add_argument('--epochs_per_val', type=int, default=1e10) # Run validation every N epochs. 1e10 means basically "skip validation"
+
+    #4.Model Architecture + Loss parameters
 
     parser.add_argument('--last_conv_stride', type=int, default=1,
-                        choices=[1, 2])
-    parser.add_argument('--normalize_feature', type=str2bool, default=False)
-    parser.add_argument('--margin', type=float, default=0.3)
+                        choices=[1, 2]) # Final ResNet stride. Use 1 for finer spatial resolution
+    parser.add_argument('--normalize_feature', type=str2bool, default=False) # Normalize embeddings before computing distances
+    parser.add_argument('--margin', type=float, default=0.3) # 	Triplet loss margin (anchor-positive vs. anchor-negative separation)
 
-    parser.add_argument('--only_test', type=str2bool, default=False)
-    parser.add_argument('--resume', type=str2bool, default=False)
-    parser.add_argument('--exp_dir', type=str, default='')
-    parser.add_argument('--model_weight_file', type=str, default='')
+    #5.Execution Flow Controls
 
-    parser.add_argument('--base_lr', type=float, default=2e-4)
+    parser.add_argument('--only_test', type=str2bool, default=False) # 	If true, skip training and only run inference
+    parser.add_argument('--resume', type=str2bool, default=False) # 	Resume training from checkpoint
+    parser.add_argument('--exp_dir', type=str, default='') # Path to save logs and model checkpoints
+    parser.add_argument('--model_weight_file', type=str, default='') # Load specific pretrained model (used in only_test or test mode)
+
+    #6.Learning Rate and Training Hyperparams
+
+    parser.add_argument('--base_lr', type=float, default=2e-4) # 	Initial learning rate
     parser.add_argument('--lr_decay_type', type=str, default='exp',
-                        choices=['exp', 'staircase'])
-    parser.add_argument('--exp_decay_at_epoch', type=int, default=151)
+                        choices=['exp', 'staircase']) # 	Learning rate schedule: exponential or staircase
+    parser.add_argument('--exp_decay_at_epoch', type=int, default=151) # 	Start exponential decay at this epoch
     parser.add_argument('--staircase_decay_at_epochs',
-                        type=eval, default=(101, 201,))
+                        type=eval, default=(101, 201,)) # Epochs where to decay LR using staircase method
     parser.add_argument('--staircase_decay_multiply_factor',
-                        type=float, default=0.1)
-    parser.add_argument('--total_epochs', type=int, default=300)
+                        type=float, default=0.1) # How much to reduce LR at each step
+    parser.add_argument('--total_epochs', type=int, default=300) # Total number of training epochs
 
     args = parser.parse_args()
 
@@ -275,18 +287,18 @@ class ExtractFeature(object):
   """
 
   def __init__(self, model, TVT):
-    self.model = model
-    self.TVT = TVT
+    self.model = model          # The trained model
+    self.TVT = TVT              # Function that sends data to GPU/CPU
 
   def __call__(self, ims):
-    old_train_eval_model = self.model.training
+    old_train_eval_model = self.model.training  # Remember the current mode (train or eval)
     # Set eval mode.
     # Force all BN layers to use global mean and variance, also disable
     # dropout.
-    self.model.eval()
-    ims = Variable(self.TVT(torch.from_numpy(ims).float()))
-    feat = self.model(ims)
-    feat = feat.data.cpu().numpy()
+    self.model.eval()      # Switch to eval mode (disables dropout & batchnorm updates)
+    ims = Variable(self.TVT(torch.from_numpy(ims).float()))  # Convert numpy image batch to PyTorch tensor & send to device
+    feat = self.model(ims)    # Forward pass: extract features
+    feat = feat.data.cpu().numpy()   # Move features to CPU and convert to numpy array
     # Restore the model to its old train/eval mode.
     self.model.train(old_train_eval_model)
     return feat
@@ -387,17 +399,20 @@ def main():
       test_set.eval(
         normalize_feat=cfg.normalize_feature,
         verbose=True)
-
+  
+  
   def validate():
     if val_set.extract_feat_func is None:
       val_set.set_feat_func(ExtractFeature(model_w, TVT))
     print('\n=========> Test on validation set <=========\n')
-    mAP, cmc_scores, _, _ = val_set.eval(
-      normalize_feat=cfg.normalize_feature,
-      to_re_rank=False,
-      verbose=False)
+    # Unpack mAP, cmc_scores, mINP (ignore multi-query for val)
+    mAP, cmc_scores, mINP, *_ = val_set.eval(
+        normalize_feat=cfg.normalize_feature,
+        to_re_rank=False,
+        verbose=False)
     print()
-    return mAP, cmc_scores[0]
+    # Return mAP, Rank-1, Rank-5, Rank-10, mINP
+    return mAP, cmc_scores[0], cmc_scores[4], cmc_scores[9], mINP
 
   if cfg.only_test:
     test(load_model_weight=True)
@@ -511,9 +526,10 @@ def main():
     # Test on Validation Set #
     ##########################
 
-    mAP, Rank1 = 0, 0
+    mAP, Rank1, Rank5, Rank5, mINP = 0, 0, 0, 0, 0
     if ((ep + 1) % cfg.epochs_per_val == 0) and (val_set is not None):
-      mAP, Rank1 = validate()
+      mAP, Rank1, Rank5, Rank10, mINP = validate()
+       print(f"Validation: mAP={mAP:.4%}, Rank-1={Rank1:.4%}, Rank-5={Rank5:.4%}, Rank-10={Rank10:.4%}, mINP={mINP:.4%}")
 
     # Log to TensorBoard
 
@@ -523,7 +539,10 @@ def main():
       writer.add_scalars(
         'val scores',
         dict(mAP=mAP,
-             Rank1=Rank1),
+             Rank1=Rank1,
+             Rank5=Rank5,
+             Rank10=Rank10,
+             mINP=mINP),
         ep)
       writer.add_scalars(
         'loss',

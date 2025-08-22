@@ -10,7 +10,7 @@ from .Dataset import Dataset
 
 from ..utils.utils import measure_time
 from ..utils.re_ranking import re_ranking
-from ..utils.metric import cmc, mean_ap
+from ..utils.metric import cmc, mean_ap ,mean_inp
 from ..utils.dataset_utils import parse_im_name
 from ..utils.distance import normalize
 from ..utils.distance import compute_dist
@@ -173,11 +173,18 @@ class TestSet(Dataset):
         single_gallery_shot=self.single_gallery_shot,
         first_match_break=self.first_match_break,
         topk=10)
-      return mAP, cmc_scores
+      # Compute mean inverse negative penalty (mINP)
+      mINP = mean_inp(
+        distmat=dist_mat,
+        query_ids=query_ids, 
+        gallery_ids=gallery_ids,
+        query_cams=query_cams, 
+        gallery_cams=gallery_cams)
+      return mAP, cmc_scores, mINP
 
-    def print_scores(mAP, cmc_scores):
-      print('[mAP: {:5.2%}], [cmc1: {:5.2%}], [cmc5: {:5.2%}], [cmc10: {:5.2%}]'
-            .format(mAP, *cmc_scores[[0, 4, 9]]))
+    def print_scores(mAP, cmc_scores, mINP):
+      print('[mAP: {:5.2%}], [cmc1: {:5.2%}], [cmc5: {:5.2%}], [cmc10: {:5.2%}], [mINP: {:5.2%}]'
+            .format(mAP, *cmc_scores[[0, 4, 9]], mINP))
 
     ################
     # Single Query #
@@ -188,10 +195,10 @@ class TestSet(Dataset):
       q_g_dist = compute_dist(feat[q_inds], feat[g_inds], type='euclidean')
 
     with measure_time('Computing scores...', verbose=verbose):
-      mAP, cmc_scores = compute_score(q_g_dist)
+      mAP, cmc_scores, mINP = compute_score(q_g_dist)
 
     print('{:<30}'.format('Single Query:'), end='')
-    print_scores(mAP, cmc_scores)
+    print_scores(mAP, cmc_scores, mINP)
 
     ###############
     # Multi Query #
@@ -216,7 +223,7 @@ class TestSet(Dataset):
         mq_g_dist = compute_dist(mq_feat, feat[g_inds], type='euclidean')
 
       with measure_time('Multi Query, Computing scores...', verbose=verbose):
-        mq_mAP, mq_cmc_scores = compute_score(
+        mq_mAP, mq_cmc_scores, mq_mINP = compute_score(
           mq_g_dist,
           query_ids=np.array(zip(*keys)[0]),
           gallery_ids=ids[g_inds],
@@ -225,7 +232,7 @@ class TestSet(Dataset):
         )
 
       print('{:<30}'.format('Multi Query:'), end='')
-      print_scores(mq_mAP, mq_cmc_scores)
+      print_scores(mq_mAP, mq_cmc_scores, mq_mINP)
 
     if to_re_rank:
 
@@ -243,10 +250,10 @@ class TestSet(Dataset):
 
       with measure_time('Computing scores for re-ranked distance...',
                         verbose=verbose):
-        mAP, cmc_scores = compute_score(re_r_q_g_dist)
+        mAP, cmc_scores, mINP = compute_score(re_r_q_g_dist)
 
       print('{:<30}'.format('Re-ranked Single Query:'), end='')
-      print_scores(mAP, cmc_scores)
+      print_scores(mAP, cmc_scores, mINP)
 
       #########################
       # Re-ranked Multi Query #
@@ -263,7 +270,7 @@ class TestSet(Dataset):
         with measure_time(
             'Multi Query, Computing scores for re-ranked distance...',
             verbose=verbose):
-          mq_mAP, mq_cmc_scores = compute_score(
+          mq_mAP, mq_cmc_scores,mq_mINP = compute_score(
             re_r_mq_g_dist,
             query_ids=np.array(zip(*keys)[0]),
             gallery_ids=ids[g_inds],
@@ -272,6 +279,6 @@ class TestSet(Dataset):
           )
 
         print('{:<30}'.format('Re-ranked Multi Query:'), end='')
-        print_scores(mq_mAP, mq_cmc_scores)
+        print_scores(mq_mAP, mq_cmc_scores,mq_mINP)
 
-    return mAP, cmc_scores, mq_mAP, mq_cmc_scores
+    return mAP, cmc_scores, mINP, mq_mAP, mq_cmc_scores, mq_mINP
