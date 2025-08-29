@@ -1,4 +1,97 @@
-.idea/
-exp/
-tmp/
+# Model files
+*.pth
+*.pt
+*.h5
+*.weights
+*.pkl
+
+# Dataset files
+*.zip
+*.tar.gz
+*.tar
+*.7z
+*.rar
+
+# Checkpoints
+checkpoints/
+models/
+weights/
+
+# Large data files
+*.npy
+*.npz
+
+# Environment
+venv/
+env/
+*.egg-info/
+
+# Python
+__pycache__/
 *.pyc
+*.pyo
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Specific files and folders to ignore
+datasets/          # Ignore entire datasets folder
+images/            # Ignore entire images folder
+*.jpg              # Ignore all JPG files
+*.jpeg             # Ignore all JPEG files  
+*.png              # Ignore all PNG files
+*.bmp              # Ignore all BMP files
+*.gif              # Ignore all GIF files
+*.tiff             # Ignore all TIFF files
+
+# Model and data files (common in ML projects)
+*.pth
+*.pt
+*.h5
+*.weights
+*.pkl
+*.npy
+*.npz
+*.csv
+*.json
+
+# Large archives
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.rar
+
+# Checkpoints and model outputs
+checkpoints/
+models/
+weights/
+outputs/
+results/
+exp/
+Dataset/
+
+# Environment and IDE files
+venv/
+env/
+.venv/
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
