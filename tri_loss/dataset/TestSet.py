@@ -204,7 +204,7 @@ class TestSet(Dataset):
     # Multi Query #
     ###############
 
-    mq_mAP, mq_cmc_scores = None, None
+    mq_mAP, mq_cmc_scores, mq_mINP = None, None, None
     if any(mq_inds):
       mq_ids = ids[mq_inds]
       mq_cams = cams[mq_inds]
@@ -223,11 +223,12 @@ class TestSet(Dataset):
         mq_g_dist = compute_dist(mq_feat, feat[g_inds], type='euclidean')
 
       with measure_time('Multi Query, Computing scores...', verbose=verbose):
+        keys_list = list(zip(*keys))  # convert iterator to list
         mq_mAP, mq_cmc_scores, mq_mINP = compute_score(
           mq_g_dist,
-          query_ids=np.array(zip(*keys)[0]),
+          query_ids=np.array(keys_list[0]),
           gallery_ids=ids[g_inds],
-          query_cams=np.array(zip(*keys)[1]),
+          query_cams=np.array(keys_list[1]),
           gallery_cams=cams[g_inds]
         )
 
@@ -267,14 +268,14 @@ class TestSet(Dataset):
           # re-ranked multi_query-gallery distance
           re_r_mq_g_dist = re_ranking(mq_g_dist, mq_mq_dist, g_g_dist)
 
-        with measure_time(
-            'Multi Query, Computing scores for re-ranked distance...',
+        with measure_time('Multi Query, Computing scores for re-ranked distance...',
             verbose=verbose):
-          mq_mAP, mq_cmc_scores,mq_mINP = compute_score(
+            keys_lists = list(zip(*keys))
+            mq_mAP, mq_cmc_scores,mq_mINP = compute_score(
             re_r_mq_g_dist,
-            query_ids=np.array(zip(*keys)[0]),
+            query_ids=np.array(keys_lists[0]),
             gallery_ids=ids[g_inds],
-            query_cams=np.array(zip(*keys)[1]),
+            query_cams=np.array(keys_lists[1]),
             gallery_cams=cams[g_inds]
           )
 

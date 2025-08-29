@@ -1,7 +1,7 @@
+# train.py
 from __future__ import print_function
 
 import sys
-
 sys.path.insert(0, '.')
 
 import torch
@@ -10,10 +10,12 @@ import torch.optim as optim
 from torch.nn.parallel import DataParallel
 
 import time
+import os
 import os.path as osp
 from tensorboardX import SummaryWriter
 import numpy as np
 import argparse
+import json
 
 from tri_loss.dataset import create_dataset
 from tri_loss.model.Model import Model
@@ -34,7 +36,10 @@ from tri_loss.utils.utils import ReDirectSTD
 from tri_loss.utils.utils import set_seed
 from tri_loss.utils.utils import adjust_lr_exp
 from tri_loss.utils.utils import adjust_lr_staircase
+from tri_loss.utils.utils import may_make_dir  # <<< used for ensuring dirs
 
+# <<< ADDED imports
+import shutil
 
 class Config(object):
   def __init__(self):
@@ -42,55 +47,57 @@ class Config(object):
     #1.Parsing Command Line Arguments
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('-d', '--sys_device_ids', type=eval, default=(0,)) #which GPU(s) to use(eg.,(0,) for first GPU only)
-    parser.add_argument('-r', '--run', type=int, default=1) # Run ID (to separate logs/checkpoints across multiple training sessions)
-    parser.add_argument('--set_seed', type=str2bool, default=False) #	Whether to use a fixed seed for reproducibility
+    parser.add_argument('-d', '--sys_device_ids', type=eval, default=(0,))
+    parser.add_argument('-r', '--run', type=int, default=1)
+    parser.add_argument('--set_seed', type=str2bool, default=False)
     parser.add_argument('--dataset', type=str, default='market1501',
-                        choices=['market1501', 'cuhk03', 'duke', 'combined']) #	Which dataset to use (Market1501, CUHK03, Duke, or Combined)
+                        choices=['market1501', 'cuhk03', 'duke', 'combined'])
     parser.add_argument('--trainset_part', type=str, default='trainval',
-                        choices=['trainval', 'train']) # 	Whether to use only train or trainval for training
+                        choices=['trainval', 'train'])
 
-    #2.Image preprocessing Parameters
+    # Image preprocessing Parameters
+    parser.add_argument('--resize_h_w', type=eval, default=(256, 128))
+    parser.add_argument('--crop_prob', type=float, default=0)
+    parser.add_argument('--crop_ratio', type=float, default=1)
+    parser.add_argument('--mirror', type=str2bool, default=True)
+    parser.add_argument('--ids_per_batch', type=int, default=32)
+    parser.add_argument('--ims_per_id', type=int, default=4)
 
-    parser.add_argument('--resize_h_w', type=eval, default=(256, 128)) #Resize images to this shape before training
-    # These several only for training set
-    parser.add_argument('--crop_prob', type=float, default=0) #Probability to crop image
-    parser.add_argument('--crop_ratio', type=float, default=1) #How much of the image to crop (e.g., 1 means no crop)
-    parser.add_argument('--mirror', type=str2bool, default=True) #Whether to randomly mirror (flip) images horizontally
-    parser.add_argument('--ids_per_batch', type=int, default=32) #	Number of person IDs per batch (for batch hard triplet sampling)
-    parser.add_argument('--ims_per_id', type=int, default=4) #Number of images per person ID in each batch
+    # Logging and evaluation configs
+    parser.add_argument('--log_to_file', type=str2bool, default=True)
+    parser.add_argument('--steps_per_log', type=int, default=20)
+    parser.add_argument('--epochs_per_val', type=int, default=1)  # run val each epoch by default
 
-    #3.Logging and evaluation configs
-
-    parser.add_argument('--log_to_file', type=str2bool, default=True) #	Whether to redirect stdout/stderr and log training
-    parser.add_argument('--steps_per_log', type=int, default=20) # Log training progress every N steps
-    parser.add_argument('--epochs_per_val', type=int, default=1e10) # Run validation every N epochs. 1e10 means basically "skip validation"
-
-    #4.Model Architecture + Loss parameters
-
+    # Model Architecture + Loss parameters
     parser.add_argument('--last_conv_stride', type=int, default=1,
-                        choices=[1, 2]) # Final ResNet stride. Use 1 for finer spatial resolution
-    parser.add_argument('--normalize_feature', type=str2bool, default=False) # Normalize embeddings before computing distances
-    parser.add_argument('--margin', type=float, default=0.3) # 	Triplet loss margin (anchor-positive vs. anchor-negative separation)
+                        choices=[1, 2])
+    parser.add_argument('--normalize_feature', type=str2bool, default=False)
+    parser.add_argument('--margin', type=float, default=0.3)
 
-    #5.Execution Flow Controls
+    # Execution Flow Controls
+    parser.add_argument('--only_test', type=str2bool, default=False)
+    parser.add_argument('--resume', type=str2bool, default=False)
+    parser.add_argument('--exp_dir', type=str, default='')
+    parser.add_argument('--model_weight_file', type=str, default='')
 
-    parser.add_argument('--only_test', type=str2bool, default=False) # 	If true, skip training and only run inference
-    parser.add_argument('--resume', type=str2bool, default=False) # 	Resume training from checkpoint
-    parser.add_argument('--exp_dir', type=str, default='') # Path to save logs and model checkpoints
-    parser.add_argument('--model_weight_file', type=str, default='') # Load specific pretrained model (used in only_test or test mode)
-
-    #6.Learning Rate and Training Hyperparams
-
-    parser.add_argument('--base_lr', type=float, default=2e-4) # 	Initial learning rate
+    # Learning Rate and Training Hyperparams
+    parser.add_argument('--base_lr', type=float, default=2e-4)
     parser.add_argument('--lr_decay_type', type=str, default='exp',
-                        choices=['exp', 'staircase']) # 	Learning rate schedule: exponential or staircase
-    parser.add_argument('--exp_decay_at_epoch', type=int, default=151) # 	Start exponential decay at this epoch
+                        choices=['exp', 'staircase'])
+    parser.add_argument('--exp_decay_at_epoch', type=int, default=151)
     parser.add_argument('--staircase_decay_at_epochs',
-                        type=eval, default=(101, 201,)) # Epochs where to decay LR using staircase method
+                        type=eval, default=(101, 201,))
     parser.add_argument('--staircase_decay_multiply_factor',
-                        type=float, default=0.1) # How much to reduce LR at each step
-    parser.add_argument('--total_epochs', type=int, default=300) # Total number of training epochs
+                        type=float, default=0.1)
+    parser.add_argument('--total_epochs', type=int, default=300)
+
+    # <<< New args for checkpointing and early stopping
+    parser.add_argument('--early_stopping_patience', type=int, default=30,
+                        help='Stop training if no improvement on validation mAP for this many validation checks (epochs). Set 0 to disable.')
+    parser.add_argument('--save_best_only', type=str2bool, default=True,
+                        help='Only keep last + best checkpoints when True.')
+    parser.add_argument('--save_every_n_epochs', type=int, default=1,
+                        help='How often (in epochs) to save checkpoint. 1 = every epoch.')
 
     args = parser.parse_args()
 
@@ -112,8 +119,6 @@ class Config(object):
     # Dataset #
     ###########
 
-    # If you want to make your results exactly reproducible, you have
-    # to also set num of threads to 1 during training.
     if self.seed is not None:
       self.prefetch_threads = 1
     else:
@@ -123,8 +128,6 @@ class Config(object):
     self.trainset_part = args.trainset_part
 
     # Image Processing
-
-    # Just for training set
     self.crop_prob = args.crop_prob
     self.crop_ratio = args.crop_ratio
     self.resize_h_w = args.resize_h_w
@@ -198,15 +201,8 @@ class Config(object):
     # ReID Model  #
     ###############
 
-    # The last block of ResNet has stride 2. We can set the stride to 1 so that
-    # the spatial resolution before global pooling is doubled.
     self.last_conv_stride = args.last_conv_stride
-
-    # Whether to normalize feature to unit length along the Channel dimension,
-    # before computing distance
     self.normalize_feature = args.normalize_feature
-
-    # Margin of triplet loss
     self.margin = args.margin
 
     #############
@@ -214,39 +210,23 @@ class Config(object):
     #############
 
     self.weight_decay = 0.0005
-
-    # Initial learning rate
     self.base_lr = args.base_lr
     self.lr_decay_type = args.lr_decay_type
     self.exp_decay_at_epoch = args.exp_decay_at_epoch
     self.staircase_decay_at_epochs = args.staircase_decay_at_epochs
     self.staircase_decay_multiply_factor = args.staircase_decay_multiply_factor
-    # Number of epochs to train
     self.total_epochs = args.total_epochs
-
-    # How often (in epochs) to test on val set.
     self.epochs_per_val = args.epochs_per_val
-
-    # How often (in batches) to log. If only need to log the average
-    # information for each epoch, set this to a large value, e.g. 1e10.
     self.steps_per_log = args.steps_per_log
-
-    # Only test and without training.
     self.only_test = args.only_test
-
     self.resume = args.resume
 
     #######
     # Log #
     #######
 
-    # If True,
-    # 1) stdout and stderr will be redirected to file,
-    # 2) training loss etc will be written to tensorboard,
-    # 3) checkpoint will be saved
     self.log_to_file = args.log_to_file
 
-    # The root dir of logs.
     if args.exp_dir == '':
       self.exp_dir = osp.join(
         'exp/train',
@@ -279,6 +259,11 @@ class Config(object):
     # Just for loading a pretrained model; no optimizer states is needed.
     self.model_weight_file = args.model_weight_file
 
+    # <<< New checkpointing / early stopping params
+    self.early_stopping_patience = args.early_stopping_patience
+    self.save_best_only = args.save_best_only
+    self.save_every_n_epochs = args.save_every_n_epochs
+
 
 class ExtractFeature(object):
   """A function to be called in the val/test set, to extract features.
@@ -287,19 +272,15 @@ class ExtractFeature(object):
   """
 
   def __init__(self, model, TVT):
-    self.model = model          # The trained model
-    self.TVT = TVT              # Function that sends data to GPU/CPU
+    self.model = model
+    self.TVT = TVT
 
   def __call__(self, ims):
-    old_train_eval_model = self.model.training  # Remember the current mode (train or eval)
-    # Set eval mode.
-    # Force all BN layers to use global mean and variance, also disable
-    # dropout.
-    self.model.eval()      # Switch to eval mode (disables dropout & batchnorm updates)
-    ims = Variable(self.TVT(torch.from_numpy(ims).float()))  # Convert numpy image batch to PyTorch tensor & send to device
-    feat = self.model(ims)    # Forward pass: extract features
-    feat = feat.data.cpu().numpy()   # Move features to CPU and convert to numpy array
-    # Restore the model to its old train/eval mode.
+    old_train_eval_model = self.model.training
+    self.model.eval()
+    ims = Variable(self.TVT(torch.from_numpy(ims).float()))
+    feat = self.model(ims)
+    feat = feat.data.cpu().numpy()
     self.model.train(old_train_eval_model)
     return feat
 
@@ -309,8 +290,19 @@ def main():
 
   # Redirect logs to both console and file.
   if cfg.log_to_file:
+    may_make_dir(cfg.exp_dir)  # <<< ensure exp dir exists before redirecting
     ReDirectSTD(cfg.stdout_file, 'stdout', False)
     ReDirectSTD(cfg.stderr_file, 'stderr', False)
+
+  # Save config to json for reproducibility
+  try:
+    cfg_json_path = osp.join(cfg.exp_dir, 'config.json')
+    may_make_dir(osp.dirname(cfg_json_path))
+    with open(cfg_json_path, 'w') as f:
+      json.dump(cfg.__dict__, f, indent=2, sort_keys=True)
+    print(f"Saved config to {cfg_json_path}")
+  except Exception as e:
+    print("Warning: could not save config.json:", e)
 
   # Lazily create SummaryWriter
   writer = None
@@ -372,12 +364,27 @@ def main():
   # May Resume Models and Optims #
   ################################
 
+  resume_ep = 0
+  best_val_map = -1.0  # <<< track best mAP
+  best_ckpt_file = osp.join(cfg.exp_dir, 'ckpt_best.pth')  # <<< best ckpt path
+  epochs_no_improve = 0  # <<< early stopping counter
+
   if cfg.resume:
-    resume_ep, scores = load_ckpt(modules_optims, cfg.ckpt_file)
+    try:
+      resume_ep, scores = load_ckpt(modules_optims, cfg.ckpt_file)
+      resume_ep = int(resume_ep)
+      print(f"Resuming from epoch {resume_ep}")
+    except Exception as e:
+      print("Warning: resume requested but failed to load ckpt:", e)
+      resume_ep = 0
 
   # May Transfer Models and Optims to Specified Device. Transferring optimizer
   # is to cope with the case when you load the checkpoint to a new device.
   TMO(modules_optims)
+
+  # make sure metrics dir exists
+  metrics_dir = osp.join(cfg.exp_dir, 'metrics')
+  may_make_dir(metrics_dir)
 
   ########
   # Test #
@@ -396,12 +403,17 @@ def main():
     for test_set, name in zip(test_sets, test_set_names):
       test_set.set_feat_func(ExtractFeature(model_w, TVT))
       print('\n=========> Test on dataset: {} <=========\n'.format(name))
-      test_set.eval(
+      # test_set.eval prints results
+      mAP, cmc_scores, mINP, mq_mAP, mq_cmc = test_set.eval(
         normalize_feat=cfg.normalize_feature,
         verbose=True)
-  
-  
-  def validate():
+      # Save the test metrics to file
+      out_file = osp.join(cfg.exp_dir, 'metrics', f'test_{name}.npz')
+      np.savez(out_file, cmc=cmc_scores, mAP=mAP, mINP=mINP)
+      print(f"Saved test metrics to {out_file}")
+
+  def validate(ep):
+    """Run validation and save per-epoch metrics; returns key metrics."""
     if val_set.extract_feat_func is None:
       val_set.set_feat_func(ExtractFeature(model_w, TVT))
     print('\n=========> Test on validation set <=========\n')
@@ -410,6 +422,15 @@ def main():
         normalize_feat=cfg.normalize_feature,
         to_re_rank=False,
         verbose=False)
+    # === Save results to .npz for later plotting ===
+    metrics_dir_local = osp.join(cfg.exp_dir, 'metrics')
+    may_make_dir(metrics_dir_local)
+    eval_file = osp.join(metrics_dir_local, f'val_epoch_{ep+1:03d}.npz')
+    np.savez(eval_file, cmc=cmc_scores, mAP=mAP, mINP=mINP)
+    # also save latest snapshot of metrics
+    latest_file = osp.join(metrics_dir_local, 'latest_val.npz')
+    np.savez(latest_file, cmc=cmc_scores, mAP=mAP, mINP=mINP)
+    print(f"Saved validation metrics to {eval_file} and latest_val.npz")
     print()
     # Return mAP, Rank-1, Rank-5, Rank-10, mINP
     return mAP, cmc_scores[0], cmc_scores[4], cmc_scores[9], mINP
@@ -423,6 +444,9 @@ def main():
   ############
 
   start_ep = resume_ep if cfg.resume else 0
+  # If resuming, we might want to set best_val_map if ckpt has scores info -- try to load it
+  # NOTE: load_ckpt returns (ep, scores); original code didn't use scores. Here we keep simple.
+
   for ep in range(start_ep, cfg.total_epochs):
 
     # Adjust Learning Rate
@@ -526,10 +550,32 @@ def main():
     # Test on Validation Set #
     ##########################
 
-    mAP, Rank1, Rank5, Rank5, mINP = 0, 0, 0, 0, 0
+    mAP, Rank1, Rank5, Rank10, mINP = 0, 0, 0, 0, 0
     if ((ep + 1) % cfg.epochs_per_val == 0) and (val_set is not None):
-      mAP, Rank1, Rank5, Rank10, mINP = validate()
-       print(f"Validation: mAP={mAP:.4%}, Rank-1={Rank1:.4%}, Rank-5={Rank5:.4%}, Rank-10={Rank10:.4%}, mINP={mINP:.4%}")
+      mAP, Rank1, Rank5, Rank10, mINP = validate(ep)
+      print(f"Validation: mAP={mAP:.4%}, Rank-1={Rank1:.4%}, Rank-5={Rank5:.4%}, Rank-10={Rank10:.4%}, mINP={mINP:.4%}")
+
+      # Check for new best
+      is_new_best = False
+      if mAP > best_val_map:
+        is_new_best = True
+        best_val_map = mAP
+        epochs_no_improve = 0
+      else:
+        epochs_no_improve += 1
+
+      # Save best checkpoint if improved
+      if cfg.log_to_file and is_new_best:
+        print(f"New best mAP: {best_val_map:.6f} -> saving best checkpoint to {best_ckpt_file}")
+        save_ckpt(modules_optims, ep + 1, best_val_map, best_ckpt_file)
+
+      # Early stopping check
+      if cfg.early_stopping_patience > 0 and epochs_no_improve >= cfg.early_stopping_patience:
+        print(f"Early stopping triggered. No improvement for {epochs_no_improve} validation checks (patience={cfg.early_stopping_patience}).")
+        # Save one last checkpoint (last)
+        if cfg.log_to_file:
+          save_ckpt(modules_optims, ep + 1, 0, cfg.ckpt_file)
+        break
 
     # Log to TensorBoard
 
@@ -562,13 +608,31 @@ def main():
              dist_an=dist_an_meter.avg, ),
         ep)
 
-    # save ckpt
-    if cfg.log_to_file:
+    # save ckpt (last)
+    if cfg.log_to_file and ((ep + 1) % cfg.save_every_n_epochs == 0):
+      # Save last ckpt
       save_ckpt(modules_optims, ep + 1, 0, cfg.ckpt_file)
+      # If not saving history, keep only last + best (best saved separately)
+      if cfg.save_best_only:
+        # nothing extra to remove because we overwrite ckpt_file each time
+        pass
 
   ########
   # Test #
   ########
+
+  # If we exited loop via early stopping, still run final test with best weights if exists
+  if osp.exists(best_ckpt_file):
+    print("Testing using best checkpoint:", best_ckpt_file)
+    # load best
+    map_location = (lambda storage, loc: storage)
+    try:
+      loaded = torch.load(best_ckpt_file, map_location=map_location)
+      # load_state_dict expects the state_dict or dict of state_dicts; save_ckpt saved similar structure
+      # load_ckpt logic handles modules_optims; reuse it
+      load_ckpt(modules_optims, best_ckpt_file)
+    except Exception as e:
+      print("Warning: failed to load best ckpt for test:", e)
 
   test(load_model_weight=False)
 
