@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/mnt/hd-data/addirakoze/Projects/ReID_ResNet50_TripletLoss/script/experiment/visualize_rank_list.py", line 269, in <module>
+    main()
+  File "/mnt/hd-data/addirakoze/Projects/ReID_ResNet50_TripletLoss/script/experiment/visualize_rank_list.py", line 204, in main
+    loaded = torch.load(used_file, map_location=map_location, weight_only=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/addirakoze/environments/Reid/lib/python3.11/site-packages/torch/serialization.py", line 1516, in load
+    return _load(
+           ^^^^^^
+  File "/home/addirakoze/environments/Reid/lib/python3.11/site-packages/torch/serialization.py", line 2108, in _load
+    unpickler = UnpicklerWrapper(data_file, **pickle_load_args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Unpickler.__init__() got an unexpected keyword argument 'weight_only'

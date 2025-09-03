@@ -1,0 +1,1759 @@
+Warning: could not save config.json: Object of type module is not JSON serializable
+------------------------------------------------------------
+cfg.__dict__
+{'base_lr': 0.0002,
+ 'ckpt_file': 'EXPERIMENT_DIRECTORY/ckpt.pth',
+ 'crop_prob': 0,
+ 'crop_ratio': 1,
+ 'dataset': 'market1501',
+ 'early_stopping_patience': 30,
+ 'epochs_per_val': 5,
+ 'exp_decay_at_epoch': 151,
+ 'exp_dir': 'EXPERIMENT_DIRECTORY',
+ 'ids_per_batch': 32,
+ 'im_mean': [0.486, 0.459, 0.408],
+ 'im_std': [0.229, 0.224, 0.225],
+ 'ims_per_id': 4,
+ 'last_conv_stride': 1,
+ 'log_to_file': True,
+ 'lr_decay_type': 'exp',
+ 'margin': 0.3,
+ 'model_weight_file': '',
+ 'normalize_feature': False,
+ 'only_test': False,
+ 'prefetch_threads': 2,
+ 'resize_h_w': (256, 128),
+ 'resume': False,
+ 'run': 1,
+ 'save_best_only': True,
+ 'save_every_n_epochs': 1,
+ 'scale_im': True,
+ 'seed': None,
+ 'staircase_decay_at_epochs': (101, 201),
+ 'staircase_decay_multiply_factor': 0.1,
+ 'stderr_file': 'EXPERIMENT_DIRECTORY/stderr_2025-09-02_12:29:54.txt',
+ 'stdout_file': 'EXPERIMENT_DIRECTORY/stdout_2025-09-02_12:29:54.txt',
+ 'steps_per_log': 10,
+ 'sys_device_ids': (0,),
+ 'test_batch_size': 32,
+ 'test_final_batch': True,
+ 'test_mirror_type': None,
+ 'test_set_kwargs': {'batch_dims': 'NCHW',
+                     'batch_size': 32,
+                     'final_batch': True,
+                     'im_mean': [0.486, 0.459, 0.408],
+                     'im_std': [0.229, 0.224, 0.225],
+                     'mirror_type': None,
+                     'name': 'market1501',
+                     'num_prefetch_threads': 2,
+                     'part': 'test',
+                     'prng': <module 'numpy.random' from '/home/addirakoze/environments/Reid/lib/python3.11/site-packages/numpy/random/__init__.py'>,
+                     'resize_h_w': (256, 128),
+                     'scale': True,
+                     'shuffle': False},
+ 'test_shuffle': False,
+ 'total_epochs': 300,
+ 'train_final_batch': False,
+ 'train_mirror_type': 'random',
+ 'train_set_kwargs': {'batch_dims': 'NCHW',
+                      'crop_prob': 0,
+                      'crop_ratio': 1,
+                      'final_batch': False,
+                      'ids_per_batch': 32,
+                      'im_mean': [0.486, 0.459, 0.408],
+                      'im_std': [0.229, 0.224, 0.225],
+                      'ims_per_id': 4,
+                      'mirror_type': 'random',
+                      'name': 'market1501',
+                      'num_prefetch_threads': 2,
+                      'part': 'trainval',
+                      'prng': <module 'numpy.random' from '/home/addirakoze/environments/Reid/lib/python3.11/site-packages/numpy/random/__init__.py'>,
+                      'resize_h_w': (256, 128),
+                      'scale': True,
+                      'shuffle': True},
+ 'train_shuffle': True,
+ 'trainset_part': 'trainval',
+ 'val_set_kwargs': {'batch_dims': 'NCHW',
+                    'batch_size': 32,
+                    'final_batch': True,
+                    'im_mean': [0.486, 0.459, 0.408],
+                    'im_std': [0.229, 0.224, 0.225],
+                    'mirror_type': None,
+                    'name': 'market1501',
+                    'num_prefetch_threads': 2,
+                    'part': 'val',
+                    'prng': <module 'numpy.random' from '/home/addirakoze/environments/Reid/lib/python3.11/site-packages/numpy/random/__init__.py'>,
+                    'resize_h_w': (256, 128),
+                    'scale': True,
+                    'shuffle': False},
+ 'weight_decay': 0.0005}
+------------------------------------------------------------
+----------------------------------------
+market1501 trainval set
+----------------------------------------
+NO. Images: 12936
+NO. IDs: 751
+----------------------------------------
+----------------------------------------
+market1501 val set
+----------------------------------------
+NO. Images: 1666
+NO. IDs: 100
+NO. Query Images: 409
+NO. Gallery Images: 1257
+NO. Multi-query Images: 0
+----------------------------------------
+----------------------------------------
+market1501 test set
+----------------------------------------
+NO. Images: 31969
+NO. IDs: 751
+NO. Query Images: 3368
+NO. Gallery Images: 15913
+NO. Multi-query Images: 12688
+----------------------------------------
+	Step 10/Ep 1, 0.74s, prec 6.25%, sm 3.91%, d_ap 13.3438, d_an 11.8584, loss 1.8110
+	Step 20/Ep 1, 0.70s, prec 18.75%, sm 14.06%, d_ap 11.4953, d_an 10.6860, loss 1.2456
+Ep 1, 19.22s, prec 9.88%, sm 6.73%, d_ap 13.0548, d_an 11.6217, loss 1.7887
+	Step 10/Ep 2, 0.70s, prec 35.94%, sm 28.12%, d_ap 8.7933, d_an 8.4946, loss 0.8481
+	Step 20/Ep 2, 0.69s, prec 35.94%, sm 18.75%, d_ap 6.5991, d_an 6.3146, loss 0.6846
+Ep 2, 16.73s, prec 32.71%, sm 21.60%, d_ap 8.2220, d_an 7.8501, loss 0.7985
+	Step 10/Ep 3, 1.07s, prec 53.91%, sm 32.81%, d_ap 4.8927, d_an 4.8806, loss 0.4923
+	Step 20/Ep 3, 1.03s, prec 63.28%, sm 46.88%, d_ap 4.3208, d_an 4.5213, loss 0.2793
+Ep 3, 22.38s, prec 50.51%, sm 31.73%, d_ap 4.8833, d_an 4.8832, loss 0.4406
+	Step 10/Ep 4, 0.71s, prec 64.84%, sm 47.66%, d_ap 3.9115, d_an 4.0457, loss 0.3626
+	Step 20/Ep 4, 0.70s, prec 50.00%, sm 34.38%, d_ap 3.9966, d_an 3.9736, loss 0.4222
+Ep 4, 16.39s, prec 61.21%, sm 38.38%, d_ap 3.8390, d_an 3.9854, loss 0.3064
+	Step 10/Ep 5, 0.70s, prec 80.47%, sm 56.25%, d_ap 3.4778, d_an 3.8191, loss 0.1706
+	Step 20/Ep 5, 0.67s, prec 69.53%, sm 53.91%, d_ap 3.5263, d_an 3.7203, loss 0.3047
+Ep 5, 16.34s, prec 69.57%, sm 49.86%, d_ap 3.4864, d_an 3.7613, loss 0.2367
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 79.69%], [cmc1: 88.02%], [cmc5: 97.31%], [cmc10: 98.78%], [mINP: 91.91%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_005.npz and latest_val.npz
+
+Validation: mAP=79.6927%, Rank-1=88.0196%, Rank-5=97.3105%, Rank-10=98.7775%, mINP=91.9084%
+New best mAP: 0.796927 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+	Step 10/Ep 6, 0.70s, prec 80.47%, sm 60.16%, d_ap 3.3049, d_an 3.6954, loss 0.1336
+	Step 20/Ep 6, 0.68s, prec 67.97%, sm 37.50%, d_ap 3.6667, d_an 3.8763, loss 0.2572
+Ep 6, 16.77s, prec 78.74%, sm 56.73%, d_ap 3.4150, d_an 3.8046, loss 0.1667
+	Step 10/Ep 7, 0.71s, prec 77.34%, sm 59.38%, d_ap 3.2550, d_an 3.6574, loss 0.1803
+	Step 20/Ep 7, 0.71s, prec 60.94%, sm 42.97%, d_ap 3.5072, d_an 3.6683, loss 0.3219
+Ep 7, 16.69s, prec 77.38%, sm 58.63%, d_ap 3.4434, d_an 3.8618, loss 0.1750
+	Step 10/Ep 8, 0.71s, prec 83.59%, sm 68.75%, d_ap 3.4108, d_an 3.9116, loss 0.1187
+	Step 20/Ep 8, 0.68s, prec 89.84%, sm 74.22%, d_ap 3.5971, d_an 4.2329, loss 0.0684
+Ep 8, 16.57s, prec 80.54%, sm 62.23%, d_ap 3.4363, d_an 3.9229, loss 0.1511
+	Step 10/Ep 9, 0.69s, prec 85.16%, sm 61.72%, d_ap 3.6209, d_an 4.1154, loss 0.1319
+	Step 20/Ep 9, 0.70s, prec 79.69%, sm 64.06%, d_ap 3.5070, d_an 4.0344, loss 0.1691
+Ep 9, 16.74s, prec 83.19%, sm 66.13%, d_ap 3.5294, d_an 4.0602, loss 0.1373
+	Step 10/Ep 10, 0.69s, prec 83.59%, sm 71.88%, d_ap 3.1932, d_an 3.8277, loss 0.1108
+	Step 20/Ep 10, 0.70s, prec 78.12%, sm 57.81%, d_ap 3.5500, d_an 3.9769, loss 0.1609
+Ep 10, 16.36s, prec 82.88%, sm 65.69%, d_ap 3.3630, d_an 3.8861, loss 0.1298
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 89.40%], [cmc1: 92.18%], [cmc5: 99.27%], [cmc10: 99.27%], [mINP: 94.84%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_010.npz and latest_val.npz
+
+Validation: mAP=89.3966%, Rank-1=92.1760%, Rank-5=99.2665%, Rank-10=99.2665%, mINP=94.8435%
+New best mAP: 0.893966 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+	Step 10/Ep 11, 0.71s, prec 85.94%, sm 76.56%, d_ap 3.4165, d_an 4.0905, loss 0.1406
+	Step 20/Ep 11, 0.68s, prec 91.41%, sm 78.12%, d_ap 3.4498, d_an 4.2104, loss 0.0680
+Ep 11, 16.46s, prec 85.80%, sm 71.30%, d_ap 3.4294, d_an 4.0565, loss 0.1131
+	Step 10/Ep 12, 0.70s, prec 88.28%, sm 76.56%, d_ap 3.5774, d_an 4.2183, loss 0.1004
+	Step 20/Ep 12, 0.71s, prec 82.81%, sm 68.75%, d_ap 3.4974, d_an 4.1206, loss 0.1155
+Ep 12, 16.58s, prec 86.89%, sm 73.34%, d_ap 3.5180, d_an 4.1775, loss 0.1059
+	Step 10/Ep 13, 0.71s, prec 92.19%, sm 85.94%, d_ap 3.3684, d_an 4.1843, loss 0.0593
+	Step 20/Ep 13, 0.70s, prec 94.53%, sm 78.12%, d_ap 3.4277, d_an 4.2127, loss 0.0494
+Ep 13, 16.33s, prec 87.36%, sm 73.40%, d_ap 3.4135, d_an 4.0727, loss 0.0957
+	Step 10/Ep 14, 0.70s, prec 89.84%, sm 75.00%, d_ap 3.3803, d_an 4.0939, loss 0.0729
+	Step 20/Ep 14, 0.73s, prec 89.84%, sm 75.78%, d_ap 3.4586, d_an 4.1795, loss 0.0810
+Ep 14, 16.65s, prec 89.61%, sm 78.53%, d_ap 3.4802, d_an 4.2288, loss 0.0836
+	Step 10/Ep 15, 0.70s, prec 89.84%, sm 75.78%, d_ap 3.4404, d_an 4.1519, loss 0.0715
+	Step 20/Ep 15, 0.70s, prec 87.50%, sm 75.00%, d_ap 3.5084, d_an 4.2399, loss 0.0921
+Ep 15, 16.52s, prec 88.76%, sm 77.68%, d_ap 3.5222, d_an 4.2606, loss 0.0872
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 93.15%], [cmc1: 95.35%], [cmc5: 99.76%], [cmc10: 100.00%], [mINP: 97.12%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_015.npz and latest_val.npz
+
+Validation: mAP=93.1523%, Rank-1=95.3545%, Rank-5=99.7555%, Rank-10=100.0000%, mINP=97.1231%
+New best mAP: 0.931523 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+	Step 10/Ep 16, 0.69s, prec 89.06%, sm 75.00%, d_ap 3.5250, d_an 4.1769, loss 0.0913
+	Step 20/Ep 16, 0.71s, prec 77.34%, sm 63.28%, d_ap 3.4146, d_an 3.9774, loss 0.1538
+Ep 16, 16.80s, prec 87.13%, sm 74.73%, d_ap 3.4585, d_an 4.1414, loss 0.0973
+	Step 10/Ep 17, 0.70s, prec 94.53%, sm 85.16%, d_ap 3.3616, d_an 4.2639, loss 0.0415
+	Step 20/Ep 17, 0.77s, prec 82.81%, sm 67.97%, d_ap 3.4231, d_an 4.0518, loss 0.1327
+Ep 17, 16.84s, prec 89.10%, sm 78.09%, d_ap 3.4358, d_an 4.1839, loss 0.0827
+	Step 10/Ep 18, 0.70s, prec 82.03%, sm 71.09%, d_ap 3.4976, d_an 4.1342, loss 0.1221
+	Step 20/Ep 18, 0.70s, prec 88.28%, sm 72.66%, d_ap 3.6647, d_an 4.2680, loss 0.0795
+Ep 18, 16.60s, prec 90.76%, sm 79.08%, d_ap 3.5238, d_an 4.2980, loss 0.0685
+	Step 10/Ep 19, 0.71s, prec 82.81%, sm 74.22%, d_ap 3.8995, d_an 4.5689, loss 0.1397
+	Step 20/Ep 19, 0.70s, prec 93.75%, sm 77.34%, d_ap 3.7302, d_an 4.3898, loss 0.0644
+Ep 19, 16.56s, prec 91.10%, sm 81.73%, d_ap 3.7328, d_an 4.5887, loss 0.0668
+	Step 10/Ep 20, 0.70s, prec 90.62%, sm 83.59%, d_ap 3.8990, d_an 5.0031, loss 0.0629
+	Step 20/Ep 20, 0.69s, prec 90.62%, sm 68.75%, d_ap 3.9207, d_an 4.6627, loss 0.0728
+Ep 20, 16.69s, prec 92.05%, sm 82.74%, d_ap 3.8275, d_an 4.7462, loss 0.0603
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 94.07%], [cmc1: 96.09%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 97.57%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_020.npz and latest_val.npz
+
+Validation: mAP=94.0744%, Rank-1=96.0880%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=97.5713%
+New best mAP: 0.940744 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+	Step 10/Ep 21, 0.78s, prec 91.41%, sm 85.94%, d_ap 3.7002, d_an 4.7435, loss 0.0619
+	Step 20/Ep 21, 0.68s, prec 93.75%, sm 82.03%, d_ap 3.5701, d_an 4.4440, loss 0.0503
+Ep 21, 16.71s, prec 91.95%, sm 82.40%, d_ap 3.7077, d_an 4.5813, loss 0.0669
+	Step 10/Ep 22, 0.72s, prec 91.41%, sm 80.47%, d_ap 3.5139, d_an 4.4285, loss 0.0760
+	Step 20/Ep 22, 0.70s, prec 91.41%, sm 79.69%, d_ap 3.6744, d_an 4.5865, loss 0.0586
+Ep 22, 16.51s, prec 93.10%, sm 83.76%, d_ap 3.5702, d_an 4.4697, loss 0.0540
+	Step 10/Ep 23, 0.80s, prec 89.84%, sm 85.94%, d_ap 3.4755, d_an 4.4322, loss 0.0619
+	Step 20/Ep 23, 0.69s, prec 89.84%, sm 79.69%, d_ap 3.5350, d_an 4.4253, loss 0.0681
+Ep 23, 16.78s, prec 92.15%, sm 83.90%, d_ap 3.5117, d_an 4.4345, loss 0.0605
+	Step 10/Ep 24, 0.75s, prec 97.66%, sm 94.53%, d_ap 3.5065, d_an 4.7148, loss 0.0200
+	Step 20/Ep 24, 0.69s, prec 78.91%, sm 66.41%, d_ap 3.5364, d_an 4.1849, loss 0.1611
+Ep 24, 16.62s, prec 92.49%, sm 83.22%, d_ap 3.4951, d_an 4.3983, loss 0.0665
+	Step 10/Ep 25, 0.71s, prec 91.41%, sm 85.16%, d_ap 3.4909, d_an 4.3191, loss 0.0531
+	Step 20/Ep 25, 0.69s, prec 80.47%, sm 68.75%, d_ap 3.7866, d_an 4.4546, loss 0.1760
+Ep 25, 16.59s, prec 93.07%, sm 84.85%, d_ap 3.5712, d_an 4.5104, loss 0.0533
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 95.51%], [cmc1: 96.82%], [cmc5: 99.76%], [cmc10: 100.00%], [mINP: 98.15%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_025.npz and latest_val.npz
+
+Validation: mAP=95.5087%, Rank-1=96.8215%, Rank-5=99.7555%, Rank-10=100.0000%, mINP=98.1540%
+New best mAP: 0.955087 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+	Step 10/Ep 26, 0.71s, prec 98.44%, sm 94.53%, d_ap 3.6222, d_an 4.7297, loss 0.0166
+	Step 20/Ep 26, 0.69s, prec 88.28%, sm 78.91%, d_ap 3.8993, d_an 4.7721, loss 0.0958
+Ep 26, 16.43s, prec 93.68%, sm 86.41%, d_ap 3.7742, d_an 4.8132, loss 0.0469
+	Step 10/Ep 27, 0.80s, prec 96.88%, sm 86.72%, d_ap 3.6803, d_an 4.7321, loss 0.0327
+	Step 20/Ep 27, 0.68s, prec 96.09%, sm 89.84%, d_ap 3.4810, d_an 4.5812, loss 0.0431
+Ep 27, 16.83s, prec 92.73%, sm 84.44%, d_ap 3.6707, d_an 4.6597, loss 0.0593
+	Step 10/Ep 28, 0.70s, prec 93.75%, sm 79.69%, d_ap 3.5213, d_an 4.3493, loss 0.0499
+	Step 20/Ep 28, 0.69s, prec 85.94%, sm 71.09%, d_ap 3.7439, d_an 4.4519, loss 0.1066
+Ep 28, 16.49s, prec 93.04%, sm 84.51%, d_ap 3.5454, d_an 4.4848, loss 0.0531
+	Step 10/Ep 29, 0.71s, prec 96.88%, sm 94.53%, d_ap 3.7417, d_an 4.8413, loss 0.0246
+	Step 20/Ep 29, 0.69s, prec 94.53%, sm 83.59%, d_ap 3.8107, d_an 4.6842, loss 0.0363
+Ep 29, 16.84s, prec 93.82%, sm 86.41%, d_ap 3.7727, d_an 4.7835, loss 0.0484
+	Step 10/Ep 30, 0.72s, prec 99.22%, sm 93.75%, d_ap 3.8095, d_an 4.8554, loss 0.0090
+	Step 20/Ep 30, 0.70s, prec 94.53%, sm 89.84%, d_ap 3.7693, d_an 5.0072, loss 0.0406
+Ep 30, 16.72s, prec 94.57%, sm 87.84%, d_ap 3.8221, d_an 4.8983, loss 0.0443
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 95.62%], [cmc1: 97.07%], [cmc5: 99.51%], [cmc10: 99.76%], [mINP: 98.18%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_030.npz and latest_val.npz
+
+Validation: mAP=95.6207%, Rank-1=97.0660%, Rank-5=99.5110%, Rank-10=99.7555%, mINP=98.1753%
+New best mAP: 0.956207 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+	Step 10/Ep 31, 0.70s, prec 93.75%, sm 83.59%, d_ap 3.8165, d_an 4.6763, loss 0.0668
+	Step 20/Ep 31, 0.69s, prec 96.09%, sm 90.62%, d_ap 3.6638, d_an 4.7254, loss 0.0345
+Ep 31, 16.76s, prec 93.99%, sm 86.92%, d_ap 3.7129, d_an 4.7845, loss 0.0465
+	Step 10/Ep 32, 0.69s, prec 97.66%, sm 96.09%, d_ap 3.6333, d_an 4.9407, loss 0.0114
+	Step 20/Ep 32, 0.69s, prec 95.31%, sm 89.06%, d_ap 3.6458, d_an 4.7368, loss 0.0335
+Ep 32, 16.55s, prec 95.45%, sm 89.03%, d_ap 3.6660, d_an 4.7560, loss 0.0346
+	Step 10/Ep 33, 0.72s, prec 95.31%, sm 92.19%, d_ap 3.5226, d_an 4.7013, loss 0.0358
+	Step 20/Ep 33, 0.69s, prec 99.22%, sm 92.97%, d_ap 3.4501, d_an 4.6556, loss 0.0145
+Ep 33, 16.61s, prec 94.46%, sm 88.42%, d_ap 3.5873, d_an 4.6484, loss 0.0441
+	Step 10/Ep 34, 0.72s, prec 96.88%, sm 92.97%, d_ap 3.6898, d_an 4.8732, loss 0.0151
+	Step 20/Ep 34, 0.79s, prec 87.50%, sm 82.81%, d_ap 3.9208, d_an 4.9138, loss 0.0924
+Ep 34, 16.68s, prec 94.09%, sm 87.64%, d_ap 3.7816, d_an 4.8598, loss 0.0501
+	Step 10/Ep 35, 0.71s, prec 93.75%, sm 87.50%, d_ap 3.7322, d_an 4.6719, loss 0.0453
+	Step 20/Ep 35, 0.70s, prec 91.41%, sm 81.25%, d_ap 3.8805, d_an 4.7423, loss 0.0686
+Ep 35, 16.41s, prec 95.99%, sm 89.30%, d_ap 3.7061, d_an 4.7878, loss 0.0321
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 96.31%], [cmc1: 97.07%], [cmc5: 99.76%], [cmc10: 100.00%], [mINP: 98.22%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_035.npz and latest_val.npz
+
+Validation: mAP=96.3061%, Rank-1=97.0660%, Rank-5=99.7555%, Rank-10=100.0000%, mINP=98.2216%
+New best mAP: 0.963061 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+	Step 10/Ep 36, 0.72s, prec 98.44%, sm 91.41%, d_ap 3.7541, d_an 4.9092, loss 0.0132
+	Step 20/Ep 36, 0.69s, prec 92.97%, sm 91.41%, d_ap 3.9428, d_an 5.0843, loss 0.0366
+Ep 36, 16.94s, prec 95.41%, sm 89.88%, d_ap 3.8548, d_an 4.9753, loss 0.0355
+	Step 10/Ep 37, 0.80s, prec 93.75%, sm 89.84%, d_ap 3.7922, d_an 5.0346, loss 0.0487
+	Step 20/Ep 37, 0.68s, prec 100.00%, sm 95.31%, d_ap 3.7538, d_an 5.1112, loss 0.0061
+Ep 37, 16.90s, prec 95.28%, sm 89.44%, d_ap 3.8576, d_an 5.0259, loss 0.0368
+	Step 10/Ep 38, 0.78s, prec 96.09%, sm 92.19%, d_ap 3.9527, d_an 5.2985, loss 0.0297
+	Step 20/Ep 38, 0.89s, prec 96.09%, sm 92.97%, d_ap 4.0332, d_an 5.3168, loss 0.0253
+Ep 38, 17.04s, prec 95.99%, sm 90.83%, d_ap 3.9826, d_an 5.2080, loss 0.0327
+	Step 10/Ep 39, 0.71s, prec 92.19%, sm 85.16%, d_ap 3.9681, d_an 5.3232, loss 0.0652
+	Step 20/Ep 39, 0.69s, prec 92.97%, sm 87.50%, d_ap 3.9191, d_an 4.9574, loss 0.0438
+Ep 39, 16.55s, prec 95.07%, sm 89.37%, d_ap 3.9568, d_an 5.2060, loss 0.0372
+	Step 10/Ep 40, 0.71s, prec 100.00%, sm 96.09%, d_ap 3.5605, d_an 4.9600, loss 0.0057
+	Step 20/Ep 40, 0.71s, prec 99.22%, sm 85.94%, d_ap 3.6010, d_an 4.5484, loss 0.0173
+Ep 40, 16.75s, prec 95.75%, sm 89.88%, d_ap 3.6479, d_an 4.7825, loss 0.0336
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 96.01%], [cmc1: 98.04%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 98.79%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_040.npz and latest_val.npz
+
+Validation: mAP=96.0144%, Rank-1=98.0440%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=98.7938%
+	Step 10/Ep 41, 0.72s, prec 99.22%, sm 96.09%, d_ap 3.4317, d_an 4.7699, loss 0.0104
+	Step 20/Ep 41, 0.70s, prec 91.41%, sm 79.69%, d_ap 3.5672, d_an 4.5574, loss 0.0669
+Ep 41, 17.04s, prec 95.04%, sm 87.57%, d_ap 3.5329, d_an 4.6046, loss 0.0398
+	Step 10/Ep 42, 0.71s, prec 96.09%, sm 92.97%, d_ap 3.7057, d_an 4.9181, loss 0.0233
+	Step 20/Ep 42, 0.73s, prec 99.22%, sm 94.53%, d_ap 3.6932, d_an 4.7985, loss 0.0082
+Ep 42, 16.75s, prec 95.21%, sm 89.84%, d_ap 3.6685, d_an 4.7909, loss 0.0391
+	Step 10/Ep 43, 0.71s, prec 95.31%, sm 92.19%, d_ap 3.4554, d_an 4.8289, loss 0.0255
+	Step 20/Ep 43, 0.69s, prec 96.88%, sm 92.19%, d_ap 3.6754, d_an 4.9175, loss 0.0253
+Ep 43, 16.73s, prec 96.54%, sm 90.52%, d_ap 3.6478, d_an 4.8132, loss 0.0299
+	Step 10/Ep 44, 0.71s, prec 92.19%, sm 85.94%, d_ap 3.8905, d_an 5.0791, loss 0.0579
+	Step 20/Ep 44, 0.76s, prec 96.88%, sm 87.50%, d_ap 3.8091, d_an 4.9116, loss 0.0367
+Ep 44, 16.77s, prec 96.13%, sm 91.64%, d_ap 3.7877, d_an 5.0016, loss 0.0293
+	Step 10/Ep 45, 0.70s, prec 91.41%, sm 83.59%, d_ap 3.7900, d_an 4.8168, loss 0.0551
+	Step 20/Ep 45, 0.70s, prec 97.66%, sm 93.75%, d_ap 3.6746, d_an 4.9794, loss 0.0182
+Ep 45, 16.65s, prec 95.69%, sm 90.86%, d_ap 3.6767, d_an 4.8807, loss 0.0323
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 96.76%], [cmc1: 97.80%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 98.72%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_045.npz and latest_val.npz
+
+Validation: mAP=96.7557%, Rank-1=97.7995%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=98.7164%
+New best mAP: 0.967557 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+	Step 10/Ep 46, 0.74s, prec 99.22%, sm 93.75%, d_ap 3.7304, d_an 4.9798, loss 0.0114
+	Step 20/Ep 46, 0.70s, prec 96.09%, sm 89.06%, d_ap 3.7741, d_an 4.9732, loss 0.0351
+Ep 46, 16.60s, prec 96.06%, sm 90.22%, d_ap 3.6981, d_an 4.9129, loss 0.0325
+	Step 10/Ep 47, 0.71s, prec 97.66%, sm 90.62%, d_ap 3.7238, d_an 4.8185, loss 0.0212
+	Step 20/Ep 47, 0.70s, prec 96.88%, sm 91.41%, d_ap 3.7446, d_an 4.8160, loss 0.0283
+Ep 47, 16.39s, prec 96.33%, sm 90.15%, d_ap 3.6541, d_an 4.8451, loss 0.0288
+	Step 10/Ep 48, 0.72s, prec 97.66%, sm 92.19%, d_ap 3.9340, d_an 5.1092, loss 0.0159
+	Step 20/Ep 48, 0.73s, prec 100.00%, sm 96.09%, d_ap 3.7486, d_an 5.1022, loss 0.0068
+Ep 48, 16.85s, prec 96.40%, sm 91.54%, d_ap 3.8608, d_an 5.1249, loss 0.0291
+	Step 10/Ep 49, 0.71s, prec 92.97%, sm 86.72%, d_ap 3.7935, d_an 4.8055, loss 0.0546
+	Step 20/Ep 49, 0.72s, prec 94.53%, sm 83.59%, d_ap 3.6913, d_an 4.9630, loss 0.0517
+Ep 49, 16.84s, prec 94.70%, sm 89.33%, d_ap 3.6755, d_an 4.9022, loss 0.0423
+	Step 10/Ep 50, 0.70s, prec 100.00%, sm 99.22%, d_ap 3.2971, d_an 4.9620, loss 0.0000
+	Step 20/Ep 50, 0.70s, prec 92.97%, sm 84.38%, d_ap 3.5085, d_an 4.5276, loss 0.0601
+Ep 50, 16.83s, prec 96.09%, sm 90.39%, d_ap 3.4560, d_an 4.6035, loss 0.0310
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 97.09%], [cmc1: 98.29%], [cmc5: 99.76%], [cmc10: 100.00%], [mINP: 98.93%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_050.npz and latest_val.npz
+
+Validation: mAP=97.0882%, Rank-1=98.2885%, Rank-5=99.7555%, Rank-10=100.0000%, mINP=98.9269%
+New best mAP: 0.970882 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+	Step 10/Ep 51, 0.74s, prec 97.66%, sm 89.84%, d_ap 3.6274, d_an 4.7171, loss 0.0205
+	Step 20/Ep 51, 0.70s, prec 92.97%, sm 87.50%, d_ap 3.5640, d_an 4.8368, loss 0.0516
+Ep 51, 16.81s, prec 96.03%, sm 90.79%, d_ap 3.5460, d_an 4.7520, loss 0.0306
+	Step 10/Ep 52, 0.70s, prec 100.00%, sm 99.22%, d_ap 3.7016, d_an 5.0969, loss 0.0019
+	Step 20/Ep 52, 0.70s, prec 94.53%, sm 92.97%, d_ap 3.8190, d_an 5.0334, loss 0.0295
+Ep 52, 16.41s, prec 96.47%, sm 91.68%, d_ap 3.7415, d_an 5.0112, loss 0.0263
+	Step 10/Ep 53, 0.73s, prec 89.84%, sm 85.94%, d_ap 3.8804, d_an 5.0522, loss 0.0738
+	Step 20/Ep 53, 0.70s, prec 96.88%, sm 86.72%, d_ap 3.7504, d_an 5.0123, loss 0.0316
+Ep 53, 16.73s, prec 96.33%, sm 91.51%, d_ap 3.7793, d_an 5.0654, loss 0.0295
+	Step 10/Ep 54, 0.71s, prec 91.41%, sm 80.47%, d_ap 3.7536, d_an 4.7628, loss 0.0609
+	Step 20/Ep 54, 0.70s, prec 96.88%, sm 92.19%, d_ap 3.6889, d_an 4.8639, loss 0.0316
+Ep 54, 16.49s, prec 95.24%, sm 89.30%, d_ap 3.7242, d_an 4.8921, loss 0.0370
+	Step 10/Ep 55, 0.70s, prec 96.88%, sm 91.41%, d_ap 3.7085, d_an 4.7892, loss 0.0240
+	Step 20/Ep 55, 0.71s, prec 92.97%, sm 82.03%, d_ap 3.6869, d_an 4.7509, loss 0.0645
+Ep 55, 17.12s, prec 94.53%, sm 88.32%, d_ap 3.6897, d_an 4.8258, loss 0.0437
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 96.04%], [cmc1: 98.04%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 98.90%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_055.npz and latest_val.npz
+
+Validation: mAP=96.0359%, Rank-1=98.0440%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=98.8998%
+	Step 10/Ep 56, 0.71s, prec 93.75%, sm 87.50%, d_ap 3.4999, d_an 4.6128, loss 0.0371
+	Step 20/Ep 56, 0.68s, prec 96.09%, sm 84.38%, d_ap 3.3838, d_an 4.6121, loss 0.0370
+Ep 56, 16.63s, prec 94.90%, sm 88.49%, d_ap 3.4685, d_an 4.5936, loss 0.0416
+	Step 10/Ep 57, 0.71s, prec 94.53%, sm 86.72%, d_ap 3.3839, d_an 4.4699, loss 0.0415
+	Step 20/Ep 57, 0.71s, prec 96.09%, sm 90.62%, d_ap 3.4924, d_an 4.4716, loss 0.0207
+Ep 57, 16.82s, prec 94.53%, sm 88.32%, d_ap 3.4202, d_an 4.5258, loss 0.0428
+	Step 10/Ep 58, 0.74s, prec 95.31%, sm 92.97%, d_ap 3.5022, d_an 4.6754, loss 0.0305
+	Step 20/Ep 58, 0.72s, prec 97.66%, sm 92.97%, d_ap 3.5056, d_an 4.5980, loss 0.0218
+Ep 58, 16.90s, prec 96.06%, sm 90.56%, d_ap 3.4476, d_an 4.5743, loss 0.0310
+	Step 10/Ep 59, 0.74s, prec 91.41%, sm 85.16%, d_ap 3.4302, d_an 4.3731, loss 0.0574
+	Step 20/Ep 59, 0.73s, prec 94.53%, sm 85.94%, d_ap 3.3410, d_an 4.3908, loss 0.0544
+Ep 59, 17.19s, prec 95.31%, sm 89.67%, d_ap 3.4151, d_an 4.5313, loss 0.0415
+	Step 10/Ep 60, 0.72s, prec 88.28%, sm 71.88%, d_ap 3.4940, d_an 4.2821, loss 0.0892
+	Step 20/Ep 60, 0.72s, prec 97.66%, sm 96.88%, d_ap 3.3711, d_an 4.7201, loss 0.0130
+Ep 60, 16.76s, prec 95.01%, sm 89.23%, d_ap 3.4364, d_an 4.5622, loss 0.0362
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 96.76%], [cmc1: 97.80%], [cmc5: 99.51%], [cmc10: 100.00%], [mINP: 98.64%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_060.npz and latest_val.npz
+
+Validation: mAP=96.7634%, Rank-1=97.7995%, Rank-5=99.5110%, Rank-10=100.0000%, mINP=98.6413%
+	Step 10/Ep 61, 0.73s, prec 96.88%, sm 92.19%, d_ap 3.3421, d_an 4.6494, loss 0.0208
+	Step 20/Ep 61, 0.78s, prec 90.62%, sm 79.69%, d_ap 3.4255, d_an 4.2508, loss 0.0777
+Ep 61, 16.77s, prec 95.28%, sm 89.81%, d_ap 3.3996, d_an 4.5440, loss 0.0361
+	Step 10/Ep 62, 0.74s, prec 99.22%, sm 96.88%, d_ap 3.2498, d_an 4.7787, loss 0.0074
+	Step 20/Ep 62, 0.71s, prec 99.22%, sm 95.31%, d_ap 3.3749, d_an 4.5169, loss 0.0098
+Ep 62, 17.06s, prec 95.99%, sm 90.62%, d_ap 3.3717, d_an 4.5233, loss 0.0340
+	Step 10/Ep 63, 0.72s, prec 92.19%, sm 87.50%, d_ap 3.4163, d_an 4.5891, loss 0.0575
+	Step 20/Ep 63, 0.71s, prec 100.00%, sm 98.44%, d_ap 3.2890, d_an 4.8578, loss 0.0010
+Ep 63, 16.92s, prec 96.98%, sm 92.70%, d_ap 3.4525, d_an 4.7078, loss 0.0215
+	Step 10/Ep 64, 0.72s, prec 100.00%, sm 95.31%, d_ap 3.5125, d_an 4.8208, loss 0.0044
+	Step 20/Ep 64, 0.71s, prec 100.00%, sm 97.66%, d_ap 3.6939, d_an 4.8999, loss 0.0031
+Ep 64, 16.78s, prec 96.23%, sm 91.68%, d_ap 3.5604, d_an 4.8208, loss 0.0285
+	Step 10/Ep 65, 0.73s, prec 91.41%, sm 85.94%, d_ap 3.5982, d_an 4.6643, loss 0.0584
+	Step 20/Ep 65, 0.70s, prec 92.97%, sm 85.16%, d_ap 3.3208, d_an 4.3294, loss 0.0503
+Ep 65, 16.76s, prec 95.24%, sm 87.84%, d_ap 3.5229, d_an 4.6681, loss 0.0409
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 97.18%], [cmc1: 98.29%], [cmc5: 99.76%], [cmc10: 100.00%], [mINP: 98.99%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_065.npz and latest_val.npz
+
+Validation: mAP=97.1757%, Rank-1=98.2885%, Rank-5=99.7555%, Rank-10=100.0000%, mINP=98.9880%
+New best mAP: 0.971757 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+	Step 10/Ep 66, 0.71s, prec 97.66%, sm 89.84%, d_ap 3.4772, d_an 4.4464, loss 0.0189
+	Step 20/Ep 66, 0.72s, prec 86.72%, sm 71.09%, d_ap 3.6115, d_an 4.4370, loss 0.0949
+Ep 66, 16.68s, prec 95.65%, sm 90.08%, d_ap 3.4084, d_an 4.5399, loss 0.0322
+	Step 10/Ep 67, 0.71s, prec 100.00%, sm 94.53%, d_ap 3.3546, d_an 4.6489, loss 0.0042
+	Step 20/Ep 67, 0.69s, prec 95.31%, sm 89.84%, d_ap 3.4208, d_an 4.6183, loss 0.0342
+Ep 67, 16.45s, prec 95.86%, sm 90.79%, d_ap 3.4113, d_an 4.5967, loss 0.0335
+	Step 10/Ep 68, 0.78s, prec 93.75%, sm 88.28%, d_ap 3.2940, d_an 4.5369, loss 0.0415
+	Step 20/Ep 68, 0.71s, prec 92.97%, sm 86.72%, d_ap 3.2827, d_an 4.3197, loss 0.0561
+Ep 68, 16.63s, prec 95.07%, sm 89.61%, d_ap 3.3426, d_an 4.5157, loss 0.0379
+	Step 10/Ep 69, 0.72s, prec 100.00%, sm 96.09%, d_ap 3.2339, d_an 4.4687, loss 0.0067
+	Step 20/Ep 69, 0.70s, prec 92.19%, sm 84.38%, d_ap 3.2417, d_an 4.2627, loss 0.0539
+Ep 69, 16.55s, prec 96.09%, sm 90.83%, d_ap 3.2927, d_an 4.4288, loss 0.0276
+	Step 10/Ep 70, 0.72s, prec 95.31%, sm 91.41%, d_ap 3.2522, d_an 4.4586, loss 0.0317
+	Step 20/Ep 70, 0.68s, prec 92.19%, sm 84.38%, d_ap 3.2624, d_an 4.3166, loss 0.0576
+Ep 70, 16.73s, prec 95.04%, sm 89.88%, d_ap 3.3076, d_an 4.4555, loss 0.0378
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 97.45%], [cmc1: 98.53%], [cmc5: 99.76%], [cmc10: 99.76%], [mINP: 99.02%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_070.npz and latest_val.npz
+
+Validation: mAP=97.4493%, Rank-1=98.5330%, Rank-5=99.7555%, Rank-10=99.7555%, mINP=99.0239%
+New best mAP: 0.974493 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+	Step 10/Ep 71, 0.71s, prec 94.53%, sm 92.19%, d_ap 3.1917, d_an 4.4202, loss 0.0268
+	Step 20/Ep 71, 0.70s, prec 96.09%, sm 92.97%, d_ap 3.1746, d_an 4.5954, loss 0.0180
+Ep 71, 16.57s, prec 96.40%, sm 91.44%, d_ap 3.2022, d_an 4.4332, loss 0.0264
+	Step 10/Ep 72, 0.70s, prec 96.09%, sm 89.06%, d_ap 3.3402, d_an 4.5360, loss 0.0284
+	Step 20/Ep 72, 0.69s, prec 90.62%, sm 85.94%, d_ap 3.5265, d_an 4.4685, loss 0.0598
+Ep 72, 16.53s, prec 96.64%, sm 91.34%, d_ap 3.3152, d_an 4.5288, loss 0.0267
+	Step 10/Ep 73, 0.72s, prec 95.31%, sm 85.94%, d_ap 3.3410, d_an 4.4688, loss 0.0380
+	Step 20/Ep 73, 0.70s, prec 94.53%, sm 85.16%, d_ap 3.3862, d_an 4.5819, loss 0.0420
+Ep 73, 16.43s, prec 96.30%, sm 90.90%, d_ap 3.3649, d_an 4.5883, loss 0.0292
+	Step 10/Ep 74, 0.70s, prec 96.88%, sm 92.19%, d_ap 3.4558, d_an 4.5852, loss 0.0243
+	Step 20/Ep 74, 0.69s, prec 96.09%, sm 91.41%, d_ap 3.4034, d_an 4.6052, loss 0.0251
+Ep 74, 16.57s, prec 96.81%, sm 91.68%, d_ap 3.3865, d_an 4.6014, loss 0.0254
+	Step 10/Ep 75, 0.71s, prec 94.53%, sm 89.84%, d_ap 3.3241, d_an 4.6841, loss 0.0491
+	Step 20/Ep 75, 0.68s, prec 97.66%, sm 92.97%, d_ap 3.1183, d_an 4.3464, loss 0.0185
+Ep 75, 16.36s, prec 95.55%, sm 90.15%, d_ap 3.3003, d_an 4.5051, loss 0.0359
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 96.75%], [cmc1: 97.80%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 98.72%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_075.npz and latest_val.npz
+
+Validation: mAP=96.7495%, Rank-1=97.7995%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=98.7164%
+	Step 10/Ep 76, 0.74s, prec 99.22%, sm 94.53%, d_ap 3.2375, d_an 4.4026, loss 0.0085
+	Step 20/Ep 76, 0.69s, prec 90.62%, sm 83.59%, d_ap 3.4040, d_an 4.3976, loss 0.0591
+Ep 76, 16.30s, prec 96.84%, sm 92.12%, d_ap 3.2691, d_an 4.4780, loss 0.0244
+	Step 10/Ep 77, 0.69s, prec 99.22%, sm 96.88%, d_ap 3.2782, d_an 4.7284, loss 0.0036
+	Step 20/Ep 77, 0.69s, prec 100.00%, sm 99.22%, d_ap 3.3355, d_an 4.6691, loss 0.0001
+Ep 77, 16.40s, prec 96.43%, sm 90.59%, d_ap 3.3362, d_an 4.5427, loss 0.0288
+	Step 10/Ep 78, 0.69s, prec 96.88%, sm 89.84%, d_ap 3.4197, d_an 4.5419, loss 0.0309
+	Step 20/Ep 78, 0.68s, prec 97.66%, sm 95.31%, d_ap 3.3425, d_an 4.7035, loss 0.0195
+Ep 78, 16.28s, prec 96.09%, sm 90.42%, d_ap 3.3745, d_an 4.5839, loss 0.0317
+	Step 10/Ep 79, 0.70s, prec 94.53%, sm 90.62%, d_ap 3.2655, d_an 4.4647, loss 0.0366
+	Step 20/Ep 79, 0.69s, prec 96.88%, sm 89.06%, d_ap 3.1758, d_an 4.3104, loss 0.0275
+Ep 79, 16.53s, prec 95.18%, sm 88.93%, d_ap 3.2389, d_an 4.4206, loss 0.0407
+	Step 10/Ep 80, 0.70s, prec 82.81%, sm 64.84%, d_ap 3.1772, d_an 3.9554, loss 0.1344
+	Step 20/Ep 80, 0.68s, prec 94.53%, sm 87.50%, d_ap 3.2550, d_an 4.3576, loss 0.0361
+Ep 80, 16.33s, prec 95.69%, sm 89.44%, d_ap 3.2296, d_an 4.3607, loss 0.0339
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 96.29%], [cmc1: 97.80%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 98.78%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_080.npz and latest_val.npz
+
+Validation: mAP=96.2850%, Rank-1=97.7995%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=98.7775%
+	Step 10/Ep 81, 0.72s, prec 96.09%, sm 87.50%, d_ap 3.2636, d_an 4.4477, loss 0.0293
+	Step 20/Ep 81, 0.68s, prec 95.31%, sm 92.19%, d_ap 3.3306, d_an 4.7267, loss 0.0285
+Ep 81, 16.38s, prec 96.57%, sm 90.96%, d_ap 3.2704, d_an 4.5107, loss 0.0274
+	Step 10/Ep 82, 0.73s, prec 96.09%, sm 88.28%, d_ap 3.3946, d_an 4.4227, loss 0.0374
+	Step 20/Ep 82, 0.69s, prec 98.44%, sm 94.53%, d_ap 3.2712, d_an 4.5057, loss 0.0115
+Ep 82, 16.46s, prec 95.45%, sm 90.12%, d_ap 3.2767, d_an 4.4225, loss 0.0342
+	Step 10/Ep 83, 0.70s, prec 98.44%, sm 93.75%, d_ap 3.2852, d_an 4.5023, loss 0.0179
+	Step 20/Ep 83, 0.70s, prec 100.00%, sm 97.66%, d_ap 3.1353, d_an 4.3657, loss 0.0035
+Ep 83, 16.38s, prec 95.86%, sm 90.69%, d_ap 3.2040, d_an 4.3822, loss 0.0343
+	Step 10/Ep 84, 0.71s, prec 97.66%, sm 92.19%, d_ap 3.1246, d_an 4.3125, loss 0.0173
+	Step 20/Ep 84, 0.69s, prec 94.53%, sm 89.84%, d_ap 3.1737, d_an 4.3122, loss 0.0423
+Ep 84, 16.55s, prec 95.14%, sm 89.50%, d_ap 3.1627, d_an 4.2724, loss 0.0344
+	Step 10/Ep 85, 0.71s, prec 92.97%, sm 87.50%, d_ap 3.1053, d_an 4.1918, loss 0.0524
+	Step 20/Ep 85, 0.69s, prec 92.97%, sm 86.72%, d_ap 3.1259, d_an 4.0908, loss 0.0471
+Ep 85, 16.42s, prec 96.23%, sm 90.12%, d_ap 3.1089, d_an 4.2214, loss 0.0304
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 96.93%], [cmc1: 98.04%], [cmc5: 99.76%], [cmc10: 100.00%], [mINP: 98.90%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_085.npz and latest_val.npz
+
+Validation: mAP=96.9257%, Rank-1=98.0440%, Rank-5=99.7555%, Rank-10=100.0000%, mINP=98.8998%
+	Step 10/Ep 86, 0.69s, prec 95.31%, sm 90.62%, d_ap 3.0285, d_an 4.1462, loss 0.0682
+	Step 20/Ep 86, 0.69s, prec 90.62%, sm 82.03%, d_ap 2.8664, d_an 3.8654, loss 0.0712
+Ep 86, 16.54s, prec 95.69%, sm 89.37%, d_ap 3.0339, d_an 4.0901, loss 0.0366
+	Step 10/Ep 87, 0.76s, prec 95.31%, sm 88.28%, d_ap 2.9164, d_an 4.0275, loss 0.0340
+	Step 20/Ep 87, 0.70s, prec 99.22%, sm 96.09%, d_ap 2.9056, d_an 4.0486, loss 0.0112
+Ep 87, 16.48s, prec 96.71%, sm 91.98%, d_ap 2.9368, d_an 4.0327, loss 0.0237
+	Step 10/Ep 88, 0.70s, prec 97.66%, sm 94.53%, d_ap 3.0499, d_an 4.2543, loss 0.0174
+	Step 20/Ep 88, 0.68s, prec 97.66%, sm 89.84%, d_ap 3.1677, d_an 4.2190, loss 0.0187
+Ep 88, 16.29s, prec 97.08%, sm 92.36%, d_ap 3.0915, d_an 4.2679, loss 0.0217
+	Step 10/Ep 89, 0.70s, prec 92.97%, sm 86.72%, d_ap 3.2459, d_an 4.3437, loss 0.0450
+	Step 20/Ep 89, 0.69s, prec 98.44%, sm 93.75%, d_ap 3.1925, d_an 4.4966, loss 0.0114
+Ep 89, 16.24s, prec 96.77%, sm 92.36%, d_ap 3.1802, d_an 4.4381, loss 0.0245
+	Step 10/Ep 90, 0.72s, prec 97.66%, sm 92.97%, d_ap 3.1763, d_an 4.3772, loss 0.0180
+	Step 20/Ep 90, 0.68s, prec 99.22%, sm 93.75%, d_ap 3.1577, d_an 4.3341, loss 0.0109
+Ep 90, 16.45s, prec 96.30%, sm 91.27%, d_ap 3.1781, d_an 4.3767, loss 0.0270
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 97.05%], [cmc1: 98.29%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 99.02%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_090.npz and latest_val.npz
+
+Validation: mAP=97.0519%, Rank-1=98.2885%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=99.0220%
+	Step 10/Ep 91, 0.71s, prec 98.44%, sm 93.75%, d_ap 3.0891, d_an 4.2401, loss 0.0123
+	Step 20/Ep 91, 0.68s, prec 98.44%, sm 89.84%, d_ap 3.2312, d_an 4.4096, loss 0.0246
+Ep 91, 16.48s, prec 96.23%, sm 90.39%, d_ap 3.1381, d_an 4.3197, loss 0.0287
+	Step 10/Ep 92, 0.71s, prec 98.44%, sm 95.31%, d_ap 3.1101, d_an 4.4084, loss 0.0110
+	Step 20/Ep 92, 0.73s, prec 96.09%, sm 90.62%, d_ap 3.1619, d_an 4.2344, loss 0.0272
+Ep 92, 16.42s, prec 95.75%, sm 90.18%, d_ap 3.1112, d_an 4.2412, loss 0.0339
+	Step 10/Ep 93, 0.70s, prec 99.22%, sm 91.41%, d_ap 3.1307, d_an 4.1429, loss 0.0121
+	Step 20/Ep 93, 0.72s, prec 100.00%, sm 97.66%, d_ap 3.0822, d_an 4.3123, loss 0.0030
+Ep 93, 16.54s, prec 95.31%, sm 88.96%, d_ap 3.0819, d_an 4.1550, loss 0.0358
+	Step 10/Ep 94, 0.70s, prec 95.31%, sm 89.06%, d_ap 3.0346, d_an 4.1709, loss 0.0381
+	Step 20/Ep 94, 0.68s, prec 98.44%, sm 96.88%, d_ap 3.0383, d_an 4.2344, loss 0.0115
+Ep 94, 16.21s, prec 96.23%, sm 91.34%, d_ap 3.0620, d_an 4.1925, loss 0.0270
+	Step 10/Ep 95, 0.69s, prec 95.31%, sm 89.84%, d_ap 3.0735, d_an 4.2259, loss 0.0408
+	Step 20/Ep 95, 0.69s, prec 99.22%, sm 94.53%, d_ap 2.9071, d_an 4.2691, loss 0.0106
+Ep 95, 16.29s, prec 97.21%, sm 92.19%, d_ap 3.0165, d_an 4.1958, loss 0.0235
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 97.84%], [cmc1: 99.76%], [cmc5: 99.76%], [cmc10: 100.00%], [mINP: 99.80%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_095.npz and latest_val.npz
+
+Validation: mAP=97.8435%, Rank-1=99.7555%, Rank-5=99.7555%, Rank-10=100.0000%, mINP=99.7963%
+New best mAP: 0.978435 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+	Step 10/Ep 96, 0.70s, prec 98.44%, sm 92.19%, d_ap 3.0656, d_an 4.0894, loss 0.0145
+	Step 20/Ep 96, 0.70s, prec 92.97%, sm 89.84%, d_ap 3.0084, d_an 4.2005, loss 0.0412
+Ep 96, 16.28s, prec 96.54%, sm 91.03%, d_ap 3.0257, d_an 4.1538, loss 0.0258
+	Step 10/Ep 97, 0.71s, prec 99.22%, sm 97.66%, d_ap 3.0633, d_an 4.3399, loss 0.0050
+	Step 20/Ep 97, 0.68s, prec 93.75%, sm 88.28%, d_ap 3.0914, d_an 4.1331, loss 0.0612
+Ep 97, 16.39s, prec 97.11%, sm 92.29%, d_ap 3.0293, d_an 4.2207, loss 0.0263
+	Step 10/Ep 98, 0.71s, prec 99.22%, sm 96.09%, d_ap 2.9076, d_an 4.1157, loss 0.0108
+	Step 20/Ep 98, 0.70s, prec 92.19%, sm 86.72%, d_ap 3.0179, d_an 4.2016, loss 0.0528
+Ep 98, 16.27s, prec 96.74%, sm 91.24%, d_ap 2.9716, d_an 4.1140, loss 0.0244
+	Step 10/Ep 99, 0.69s, prec 100.00%, sm 98.44%, d_ap 2.9987, d_an 4.3106, loss 0.0021
+	Step 20/Ep 99, 0.69s, prec 95.31%, sm 92.19%, d_ap 3.0116, d_an 4.2066, loss 0.0254
+Ep 99, 16.43s, prec 96.64%, sm 91.92%, d_ap 2.9672, d_an 4.1514, loss 0.0248
+	Step 10/Ep 100, 0.70s, prec 98.44%, sm 92.19%, d_ap 2.9428, d_an 3.8669, loss 0.0152
+	Step 20/Ep 100, 0.69s, prec 90.62%, sm 85.16%, d_ap 2.9133, d_an 3.9346, loss 0.0849
+Ep 100, 16.38s, prec 95.62%, sm 89.33%, d_ap 2.9321, d_an 3.9919, loss 0.0378
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 96.61%], [cmc1: 98.53%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 99.08%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_100.npz and latest_val.npz
+
+Validation: mAP=96.6130%, Rank-1=98.5330%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=99.0791%
+	Step 10/Ep 101, 0.70s, prec 99.22%, sm 96.09%, d_ap 2.9642, d_an 4.1810, loss 0.0091
+	Step 20/Ep 101, 0.68s, prec 96.09%, sm 95.31%, d_ap 2.9237, d_an 4.0644, loss 0.0262
+Ep 101, 16.29s, prec 96.94%, sm 92.02%, d_ap 2.8919, d_an 4.0197, loss 0.0249
+	Step 10/Ep 102, 0.70s, prec 100.00%, sm 96.88%, d_ap 2.9680, d_an 4.1195, loss 0.0031
+	Step 20/Ep 102, 0.69s, prec 96.88%, sm 91.41%, d_ap 2.9287, d_an 4.0880, loss 0.0218
+Ep 102, 16.25s, prec 96.54%, sm 91.54%, d_ap 2.9353, d_an 4.0538, loss 0.0285
+	Step 10/Ep 103, 0.71s, prec 100.00%, sm 99.22%, d_ap 2.8470, d_an 4.1429, loss 0.0002
+	Step 20/Ep 103, 0.68s, prec 95.31%, sm 84.38%, d_ap 2.8412, d_an 3.8156, loss 0.0407
+Ep 103, 16.28s, prec 95.75%, sm 89.98%, d_ap 2.9264, d_an 4.0071, loss 0.0347
+	Step 10/Ep 104, 0.70s, prec 98.44%, sm 94.53%, d_ap 2.8381, d_an 3.8280, loss 0.0154
+	Step 20/Ep 104, 0.72s, prec 99.22%, sm 96.88%, d_ap 2.7418, d_an 3.9115, loss 0.0050
+Ep 104, 16.39s, prec 96.37%, sm 91.17%, d_ap 2.8106, d_an 3.8415, loss 0.0278
+	Step 10/Ep 105, 0.70s, prec 98.44%, sm 96.88%, d_ap 2.7024, d_an 3.9065, loss 0.0056
+	Step 20/Ep 105, 0.74s, prec 100.00%, sm 97.66%, d_ap 2.7127, d_an 3.9313, loss 0.0044
+Ep 105, 16.60s, prec 97.11%, sm 92.32%, d_ap 2.7743, d_an 3.8422, loss 0.0215
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 98.11%], [cmc1: 99.76%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 99.88%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_105.npz and latest_val.npz
+
+Validation: mAP=98.1058%, Rank-1=99.7555%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=99.8778%
+New best mAP: 0.981058 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+	Step 10/Ep 106, 0.71s, prec 100.00%, sm 98.44%, d_ap 2.7650, d_an 3.8254, loss 0.0017
+	Step 20/Ep 106, 0.68s, prec 96.88%, sm 90.62%, d_ap 2.8670, d_an 3.9643, loss 0.0251
+Ep 106, 16.44s, prec 96.57%, sm 90.73%, d_ap 2.8080, d_an 3.9053, loss 0.0270
+	Step 10/Ep 107, 0.71s, prec 97.66%, sm 92.97%, d_ap 2.8915, d_an 4.0044, loss 0.0133
+	Step 20/Ep 107, 0.67s, prec 95.31%, sm 90.62%, d_ap 2.8917, d_an 3.9197, loss 0.0262
+Ep 107, 16.26s, prec 95.52%, sm 89.98%, d_ap 2.8380, d_an 3.9095, loss 0.0337
+	Step 10/Ep 108, 0.71s, prec 85.94%, sm 79.69%, d_ap 2.9381, d_an 3.8613, loss 0.0869
+	Step 20/Ep 108, 0.70s, prec 99.22%, sm 97.66%, d_ap 2.8408, d_an 4.0851, loss 0.0066
+Ep 108, 16.30s, prec 96.20%, sm 90.79%, d_ap 2.8274, d_an 3.9375, loss 0.0268
+	Step 10/Ep 109, 0.70s, prec 96.09%, sm 89.06%, d_ap 2.8857, d_an 3.8294, loss 0.0252
+	Step 20/Ep 109, 0.69s, prec 97.66%, sm 91.41%, d_ap 2.8643, d_an 3.9577, loss 0.0167
+Ep 109, 16.27s, prec 96.64%, sm 90.39%, d_ap 2.8260, d_an 3.8822, loss 0.0270
+	Step 10/Ep 110, 0.71s, prec 95.31%, sm 86.72%, d_ap 2.7936, d_an 3.8022, loss 0.0301
+	Step 20/Ep 110, 0.70s, prec 97.66%, sm 87.50%, d_ap 2.8442, d_an 3.9115, loss 0.0247
+Ep 110, 16.43s, prec 96.43%, sm 90.52%, d_ap 2.8030, d_an 3.8942, loss 0.0282
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 97.46%], [cmc1: 99.27%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 99.57%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_110.npz and latest_val.npz
+
+Validation: mAP=97.4595%, Rank-1=99.2665%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=99.5721%
+	Step 10/Ep 111, 0.71s, prec 96.09%, sm 94.53%, d_ap 2.7829, d_an 4.0255, loss 0.0402
+	Step 20/Ep 111, 0.70s, prec 97.66%, sm 90.62%, d_ap 2.7316, d_an 3.8820, loss 0.0203
+Ep 111, 16.47s, prec 96.16%, sm 89.67%, d_ap 2.8206, d_an 3.8799, loss 0.0314
+	Step 10/Ep 112, 0.71s, prec 94.53%, sm 88.28%, d_ap 2.9476, d_an 4.0088, loss 0.0360
+	Step 20/Ep 112, 0.68s, prec 92.97%, sm 88.28%, d_ap 2.8678, d_an 3.9137, loss 0.0606
+Ep 112, 16.27s, prec 95.99%, sm 89.67%, d_ap 2.8509, d_an 3.9028, loss 0.0326
+	Step 10/Ep 113, 0.69s, prec 94.53%, sm 90.62%, d_ap 2.7757, d_an 3.8989, loss 0.0346
+	Step 20/Ep 113, 0.68s, prec 98.44%, sm 96.09%, d_ap 2.7136, d_an 3.9333, loss 0.0107
+Ep 113, 16.30s, prec 95.62%, sm 89.47%, d_ap 2.7376, d_an 3.8065, loss 0.0358
+	Step 10/Ep 114, 0.72s, prec 93.75%, sm 86.72%, d_ap 2.6381, d_an 3.6258, loss 0.0403
+	Step 20/Ep 114, 0.68s, prec 93.75%, sm 87.50%, d_ap 2.7404, d_an 3.7768, loss 0.0451
+Ep 114, 16.42s, prec 95.82%, sm 89.64%, d_ap 2.6881, d_an 3.7204, loss 0.0316
+	Step 10/Ep 115, 0.70s, prec 93.75%, sm 85.94%, d_ap 2.6828, d_an 3.5037, loss 0.0469
+	Step 20/Ep 115, 0.73s, prec 96.88%, sm 82.81%, d_ap 2.7267, d_an 3.7302, loss 0.0264
+Ep 115, 16.43s, prec 95.89%, sm 89.40%, d_ap 2.6665, d_an 3.6923, loss 0.0314
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 96.54%], [cmc1: 97.80%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 98.60%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_115.npz and latest_val.npz
+
+Validation: mAP=96.5413%, Rank-1=97.7995%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=98.6023%
+	Step 10/Ep 116, 0.69s, prec 98.44%, sm 96.09%, d_ap 2.6436, d_an 3.8905, loss 0.0116
+	Step 20/Ep 116, 0.71s, prec 95.31%, sm 84.38%, d_ap 2.8342, d_an 3.7564, loss 0.0397
+Ep 116, 16.30s, prec 96.43%, sm 89.64%, d_ap 2.7276, d_an 3.7802, loss 0.0303
+	Step 10/Ep 117, 0.71s, prec 94.53%, sm 80.47%, d_ap 2.8417, d_an 3.6211, loss 0.0496
+	Step 20/Ep 117, 0.68s, prec 100.00%, sm 98.44%, d_ap 2.5728, d_an 3.7416, loss 0.0026
+Ep 117, 16.48s, prec 95.75%, sm 89.84%, d_ap 2.7087, d_an 3.7488, loss 0.0314
+	Step 10/Ep 118, 0.71s, prec 97.66%, sm 90.62%, d_ap 2.6848, d_an 3.7536, loss 0.0187
+	Step 20/Ep 118, 0.70s, prec 100.00%, sm 94.53%, d_ap 2.5851, d_an 3.6594, loss 0.0077
+Ep 118, 16.36s, prec 95.62%, sm 89.20%, d_ap 2.6553, d_an 3.6256, loss 0.0345
+	Step 10/Ep 119, 0.70s, prec 100.00%, sm 96.09%, d_ap 2.5659, d_an 3.6324, loss 0.0038
+	Step 20/Ep 119, 0.69s, prec 99.22%, sm 95.31%, d_ap 2.5636, d_an 3.6348, loss 0.0088
+Ep 119, 16.37s, prec 95.41%, sm 87.98%, d_ap 2.6043, d_an 3.5804, loss 0.0328
+	Step 10/Ep 120, 0.71s, prec 98.44%, sm 97.66%, d_ap 2.5828, d_an 3.7847, loss 0.0079
+	Step 20/Ep 120, 0.69s, prec 96.88%, sm 95.31%, d_ap 2.6490, d_an 3.7785, loss 0.0205
+Ep 120, 16.24s, prec 95.75%, sm 88.96%, d_ap 2.6680, d_an 3.6870, loss 0.0316
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 97.25%], [cmc1: 99.27%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 99.53%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_120.npz and latest_val.npz
+
+Validation: mAP=97.2486%, Rank-1=99.2665%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=99.5314%
+	Step 10/Ep 121, 0.69s, prec 99.22%, sm 92.97%, d_ap 2.7292, d_an 3.8733, loss 0.0117
+	Step 20/Ep 121, 0.69s, prec 100.00%, sm 93.75%, d_ap 2.6265, d_an 3.6730, loss 0.0119
+Ep 121, 16.36s, prec 96.37%, sm 89.61%, d_ap 2.6992, d_an 3.7514, loss 0.0275
+	Step 10/Ep 122, 0.70s, prec 95.31%, sm 85.94%, d_ap 2.6999, d_an 3.6600, loss 0.0377
+	Step 20/Ep 122, 0.70s, prec 91.41%, sm 89.06%, d_ap 2.7079, d_an 3.7250, loss 0.0460
+Ep 122, 16.43s, prec 94.46%, sm 87.87%, d_ap 2.6967, d_an 3.6908, loss 0.0436
+	Step 10/Ep 123, 0.74s, prec 95.31%, sm 85.16%, d_ap 2.5162, d_an 3.5131, loss 0.0389
+	Step 20/Ep 123, 0.68s, prec 93.75%, sm 89.06%, d_ap 2.6051, d_an 3.6041, loss 0.0410
+Ep 123, 16.48s, prec 95.75%, sm 88.76%, d_ap 2.6460, d_an 3.6275, loss 0.0350
+	Step 10/Ep 124, 0.73s, prec 99.22%, sm 89.84%, d_ap 2.6191, d_an 3.6532, loss 0.0126
+	Step 20/Ep 124, 0.69s, prec 100.00%, sm 92.97%, d_ap 2.5953, d_an 3.7115, loss 0.0091
+Ep 124, 16.46s, prec 96.57%, sm 89.98%, d_ap 2.6330, d_an 3.6427, loss 0.0266
+	Step 10/Ep 125, 0.74s, prec 99.22%, sm 96.88%, d_ap 2.6066, d_an 3.6377, loss 0.0087
+	Step 20/Ep 125, 0.69s, prec 96.88%, sm 92.97%, d_ap 2.4562, d_an 3.5944, loss 0.0216
+Ep 125, 16.48s, prec 96.98%, sm 91.30%, d_ap 2.6232, d_an 3.6751, loss 0.0240
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 97.56%], [cmc1: 98.29%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 99.10%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_125.npz and latest_val.npz
+
+Validation: mAP=97.5589%, Rank-1=98.2885%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=99.1035%
+	Step 10/Ep 126, 0.70s, prec 97.66%, sm 94.53%, d_ap 2.5599, d_an 3.7200, loss 0.0164
+	Step 20/Ep 126, 0.69s, prec 94.53%, sm 89.06%, d_ap 2.7080, d_an 3.7141, loss 0.0573
+Ep 126, 16.22s, prec 96.64%, sm 90.86%, d_ap 2.5868, d_an 3.6157, loss 0.0274
+	Step 10/Ep 127, 0.70s, prec 97.66%, sm 90.62%, d_ap 2.6673, d_an 3.7050, loss 0.0234
+	Step 20/Ep 127, 0.69s, prec 92.19%, sm 85.16%, d_ap 2.6508, d_an 3.5033, loss 0.0782
+Ep 127, 16.47s, prec 96.71%, sm 90.25%, d_ap 2.5923, d_an 3.6519, loss 0.0264
+	Step 10/Ep 128, 0.71s, prec 99.22%, sm 96.88%, d_ap 2.4732, d_an 3.5579, loss 0.0045
+	Step 20/Ep 128, 0.70s, prec 99.22%, sm 92.97%, d_ap 2.5168, d_an 3.5173, loss 0.0123
+Ep 128, 16.50s, prec 97.01%, sm 91.03%, d_ap 2.5379, d_an 3.5694, loss 0.0239
+	Step 10/Ep 129, 0.69s, prec 99.22%, sm 94.53%, d_ap 2.4847, d_an 3.5640, loss 0.0083
+	Step 20/Ep 129, 0.67s, prec 93.75%, sm 87.50%, d_ap 2.6084, d_an 3.6737, loss 0.0667
+Ep 129, 16.45s, prec 96.74%, sm 89.47%, d_ap 2.6035, d_an 3.6316, loss 0.0274
+	Step 10/Ep 130, 0.72s, prec 97.66%, sm 93.75%, d_ap 2.6516, d_an 3.7903, loss 0.0284
+	Step 20/Ep 130, 0.68s, prec 92.97%, sm 80.47%, d_ap 2.6651, d_an 3.6015, loss 0.0638
+Ep 130, 16.40s, prec 95.65%, sm 89.13%, d_ap 2.6161, d_an 3.6625, loss 0.0321
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 96.74%], [cmc1: 98.29%], [cmc5: 99.76%], [cmc10: 99.76%], [mINP: 98.86%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_130.npz and latest_val.npz
+
+Validation: mAP=96.7395%, Rank-1=98.2885%, Rank-5=99.7555%, Rank-10=99.7555%, mINP=98.8561%
+	Step 10/Ep 131, 0.70s, prec 91.41%, sm 86.72%, d_ap 2.6485, d_an 3.5501, loss 0.0725
+	Step 20/Ep 131, 0.68s, prec 96.88%, sm 90.62%, d_ap 2.6117, d_an 3.6372, loss 0.0317
+Ep 131, 16.46s, prec 96.09%, sm 89.40%, d_ap 2.6150, d_an 3.6372, loss 0.0304
+	Step 10/Ep 132, 0.71s, prec 97.66%, sm 92.19%, d_ap 2.6082, d_an 3.6018, loss 0.0148
+	Step 20/Ep 132, 0.77s, prec 98.44%, sm 92.97%, d_ap 2.6075, d_an 3.6220, loss 0.0158
+Ep 132, 16.40s, prec 96.09%, sm 89.40%, d_ap 2.6175, d_an 3.6509, loss 0.0296
+	Step 10/Ep 133, 0.69s, prec 96.09%, sm 87.50%, d_ap 2.4621, d_an 3.5260, loss 0.0361
+	Step 20/Ep 133, 0.69s, prec 91.41%, sm 81.25%, d_ap 2.5945, d_an 3.4226, loss 0.0742
+Ep 133, 16.40s, prec 95.72%, sm 89.44%, d_ap 2.5277, d_an 3.5575, loss 0.0313
+	Step 10/Ep 134, 0.73s, prec 89.84%, sm 82.03%, d_ap 2.5224, d_an 3.3796, loss 0.0707
+	Step 20/Ep 134, 0.69s, prec 94.53%, sm 85.94%, d_ap 2.6154, d_an 3.5312, loss 0.0427
+Ep 134, 16.40s, prec 95.72%, sm 88.55%, d_ap 2.5292, d_an 3.5046, loss 0.0330
+	Step 10/Ep 135, 0.69s, prec 99.22%, sm 88.28%, d_ap 2.4927, d_an 3.4798, loss 0.0179
+	Step 20/Ep 135, 0.68s, prec 90.62%, sm 82.81%, d_ap 2.6690, d_an 3.6098, loss 0.0663
+Ep 135, 16.59s, prec 96.20%, sm 90.96%, d_ap 2.5440, d_an 3.5965, loss 0.0275
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 96.57%], [cmc1: 97.56%], [cmc5: 99.51%], [cmc10: 100.00%], [mINP: 98.53%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_135.npz and latest_val.npz
+
+Validation: mAP=96.5670%, Rank-1=97.5550%, Rank-5=99.5110%, Rank-10=100.0000%, mINP=98.5272%
+	Step 10/Ep 136, 0.70s, prec 98.44%, sm 89.06%, d_ap 2.4946, d_an 3.5694, loss 0.0186
+	Step 20/Ep 136, 0.69s, prec 94.53%, sm 85.16%, d_ap 2.5593, d_an 3.6104, loss 0.0486
+Ep 136, 16.25s, prec 96.57%, sm 90.12%, d_ap 2.5611, d_an 3.5803, loss 0.0273
+	Step 10/Ep 137, 0.69s, prec 96.88%, sm 89.06%, d_ap 2.5773, d_an 3.4902, loss 0.0266
+	Step 20/Ep 137, 0.70s, prec 95.31%, sm 87.50%, d_ap 2.4608, d_an 3.4367, loss 0.0313
+Ep 137, 16.35s, prec 96.60%, sm 89.98%, d_ap 2.5181, d_an 3.5353, loss 0.0251
+	Step 10/Ep 138, 0.70s, prec 94.53%, sm 89.84%, d_ap 2.5756, d_an 3.5783, loss 0.0366
+	Step 20/Ep 138, 0.70s, prec 97.66%, sm 94.53%, d_ap 2.4879, d_an 3.6242, loss 0.0171
+Ep 138, 16.37s, prec 95.99%, sm 89.67%, d_ap 2.5474, d_an 3.5633, loss 0.0312
+	Step 10/Ep 139, 0.70s, prec 96.09%, sm 92.19%, d_ap 2.4811, d_an 3.4989, loss 0.0454
+	Step 20/Ep 139, 0.69s, prec 93.75%, sm 86.72%, d_ap 2.4760, d_an 3.4699, loss 0.0382
+Ep 139, 16.41s, prec 95.75%, sm 88.49%, d_ap 2.5162, d_an 3.5048, loss 0.0341
+	Step 10/Ep 140, 0.71s, prec 93.75%, sm 85.94%, d_ap 2.4876, d_an 3.5307, loss 0.0405
+	Step 20/Ep 140, 0.69s, prec 96.88%, sm 95.31%, d_ap 2.4676, d_an 3.6417, loss 0.0204
+Ep 140, 16.40s, prec 96.64%, sm 91.07%, d_ap 2.4962, d_an 3.5225, loss 0.0267
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 97.27%], [cmc1: 98.53%], [cmc5: 99.51%], [cmc10: 100.00%], [mINP: 98.93%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_140.npz and latest_val.npz
+
+Validation: mAP=97.2664%, Rank-1=98.5330%, Rank-5=99.5110%, Rank-10=100.0000%, mINP=98.9303%
+	Step 10/Ep 141, 0.72s, prec 98.44%, sm 92.19%, d_ap 2.4509, d_an 3.4812, loss 0.0169
+	Step 20/Ep 141, 0.69s, prec 97.66%, sm 89.84%, d_ap 2.5250, d_an 3.4739, loss 0.0229
+Ep 141, 16.45s, prec 96.06%, sm 89.10%, d_ap 2.4799, d_an 3.5042, loss 0.0310
+	Step 10/Ep 142, 0.70s, prec 93.75%, sm 89.06%, d_ap 2.3706, d_an 3.5324, loss 0.0401
+	Step 20/Ep 142, 0.70s, prec 94.53%, sm 85.16%, d_ap 2.5096, d_an 3.3831, loss 0.0408
+Ep 142, 16.36s, prec 96.47%, sm 90.01%, d_ap 2.4383, d_an 3.4366, loss 0.0264
+	Step 10/Ep 143, 0.70s, prec 95.31%, sm 86.72%, d_ap 2.4826, d_an 3.4404, loss 0.0452
+	Step 20/Ep 143, 0.68s, prec 98.44%, sm 92.97%, d_ap 2.4078, d_an 3.3757, loss 0.0133
+Ep 143, 16.33s, prec 96.06%, sm 90.32%, d_ap 2.3963, d_an 3.3934, loss 0.0275
+	Step 10/Ep 144, 0.71s, prec 95.31%, sm 86.72%, d_ap 2.4803, d_an 3.3309, loss 0.0405
+	Step 20/Ep 144, 0.70s, prec 98.44%, sm 94.53%, d_ap 2.4925, d_an 3.4963, loss 0.0094
+Ep 144, 16.31s, prec 96.03%, sm 89.67%, d_ap 2.4213, d_an 3.3758, loss 0.0311
+	Step 10/Ep 145, 0.70s, prec 94.53%, sm 88.28%, d_ap 2.5139, d_an 3.3910, loss 0.0387
+	Step 20/Ep 145, 0.68s, prec 97.66%, sm 94.53%, d_ap 2.3072, d_an 3.4263, loss 0.0110
+Ep 145, 16.24s, prec 96.64%, sm 89.81%, d_ap 2.4141, d_an 3.4049, loss 0.0255
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 96.94%], [cmc1: 98.04%], [cmc5: 99.76%], [cmc10: 99.76%], [mINP: 98.74%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_145.npz and latest_val.npz
+
+Validation: mAP=96.9418%, Rank-1=98.0440%, Rank-5=99.7555%, Rank-10=99.7555%, mINP=98.7352%
+	Step 10/Ep 146, 0.71s, prec 98.44%, sm 88.28%, d_ap 2.3835, d_an 3.3649, loss 0.0189
+	Step 20/Ep 146, 0.68s, prec 96.09%, sm 91.41%, d_ap 2.3268, d_an 3.4105, loss 0.0260
+Ep 146, 16.34s, prec 96.23%, sm 90.05%, d_ap 2.3718, d_an 3.3656, loss 0.0270
+	Step 10/Ep 147, 0.70s, prec 92.97%, sm 83.59%, d_ap 2.3024, d_an 3.2407, loss 0.0409
+	Step 20/Ep 147, 0.68s, prec 97.66%, sm 89.84%, d_ap 2.4029, d_an 3.4663, loss 0.0220
+Ep 147, 16.27s, prec 95.96%, sm 89.47%, d_ap 2.3527, d_an 3.3283, loss 0.0306
+	Step 10/Ep 148, 0.70s, prec 100.00%, sm 97.66%, d_ap 2.2787, d_an 3.4170, loss 0.0026
+	Step 20/Ep 148, 0.68s, prec 94.53%, sm 85.94%, d_ap 2.4433, d_an 3.3374, loss 0.0415
+Ep 148, 16.17s, prec 96.40%, sm 89.30%, d_ap 2.3691, d_an 3.3044, loss 0.0283
+	Step 10/Ep 149, 0.69s, prec 92.97%, sm 92.19%, d_ap 2.3523, d_an 3.3919, loss 0.0362
+	Step 20/Ep 149, 0.68s, prec 98.44%, sm 94.53%, d_ap 2.3184, d_an 3.3072, loss 0.0135
+Ep 149, 16.21s, prec 96.50%, sm 88.52%, d_ap 2.3728, d_an 3.3073, loss 0.0287
+	Step 10/Ep 150, 0.70s, prec 90.62%, sm 79.69%, d_ap 2.4373, d_an 3.1840, loss 0.0557
+	Step 20/Ep 150, 0.69s, prec 97.66%, sm 92.19%, d_ap 2.2204, d_an 3.4025, loss 0.0177
+Ep 150, 16.24s, prec 96.77%, sm 90.86%, d_ap 2.3454, d_an 3.3461, loss 0.0230
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 96.78%], [cmc1: 98.29%], [cmc5: 99.76%], [cmc10: 100.00%], [mINP: 99.06%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_150.npz and latest_val.npz
+
+Validation: mAP=96.7849%, Rank-1=98.2885%, Rank-5=99.7555%, Rank-10=100.0000%, mINP=99.0628%
+=====> lr adjusted to 0.0001909985
+	Step 10/Ep 151, 0.72s, prec 97.66%, sm 87.50%, d_ap 2.3501, d_an 3.2311, loss 0.0233
+	Step 20/Ep 151, 0.69s, prec 96.88%, sm 87.50%, d_ap 2.3925, d_an 3.3803, loss 0.0259
+Ep 151, 16.42s, prec 96.06%, sm 88.72%, d_ap 2.3472, d_an 3.2934, loss 0.0315
+=====> lr adjusted to 0.0001824022
+	Step 10/Ep 152, 0.70s, prec 100.00%, sm 94.53%, d_ap 2.2458, d_an 3.3914, loss 0.0073
+	Step 20/Ep 152, 0.68s, prec 92.97%, sm 83.59%, d_ap 2.3098, d_an 3.1341, loss 0.0458
+Ep 152, 16.23s, prec 96.33%, sm 90.12%, d_ap 2.2858, d_an 3.2575, loss 0.0302
+=====> lr adjusted to 0.0001741927
+	Step 10/Ep 153, 1.09s, prec 97.66%, sm 95.31%, d_ap 2.2328, d_an 3.3339, loss 0.0145
+	Step 20/Ep 153, 1.07s, prec 99.22%, sm 92.19%, d_ap 2.3458, d_an 3.2846, loss 0.0151
+Ep 153, 20.95s, prec 97.21%, sm 90.83%, d_ap 2.2773, d_an 3.2323, loss 0.0222
+=====> lr adjusted to 0.0001663528
+	Step 10/Ep 154, 0.73s, prec 97.66%, sm 91.41%, d_ap 2.2787, d_an 3.2666, loss 0.0180
+	Step 20/Ep 154, 0.68s, prec 96.09%, sm 91.41%, d_ap 2.1970, d_an 3.1905, loss 0.0285
+Ep 154, 16.95s, prec 96.54%, sm 89.44%, d_ap 2.2814, d_an 3.2302, loss 0.0292
+=====> lr adjusted to 0.0001588656
+	Step 10/Ep 155, 0.71s, prec 99.22%, sm 99.22%, d_ap 2.2362, d_an 3.3516, loss 0.0050
+	Step 20/Ep 155, 0.70s, prec 95.31%, sm 89.84%, d_ap 2.1805, d_an 3.1812, loss 0.0320
+Ep 155, 16.32s, prec 96.81%, sm 91.54%, d_ap 2.2364, d_an 3.2246, loss 0.0246
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 98.08%], [cmc1: 98.78%], [cmc5: 99.76%], [cmc10: 100.00%], [mINP: 99.22%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_155.npz and latest_val.npz
+
+Validation: mAP=98.0784%, Rank-1=98.7775%, Rank-5=99.7555%, Rank-10=100.0000%, mINP=99.2237%
+=====> lr adjusted to 0.0001517155
+	Step 10/Ep 156, 0.69s, prec 90.62%, sm 85.94%, d_ap 2.2776, d_an 3.1325, loss 0.0710
+	Step 20/Ep 156, 0.68s, prec 96.88%, sm 92.97%, d_ap 2.1680, d_an 3.1846, loss 0.0210
+Ep 156, 16.31s, prec 97.62%, sm 92.66%, d_ap 2.2079, d_an 3.2189, loss 0.0206
+=====> lr adjusted to 0.0001448872
+	Step 10/Ep 157, 0.72s, prec 100.00%, sm 96.09%, d_ap 2.1839, d_an 3.2078, loss 0.0076
+	Step 20/Ep 157, 0.69s, prec 97.66%, sm 94.53%, d_ap 2.2111, d_an 3.2568, loss 0.0170
+Ep 157, 16.33s, prec 97.35%, sm 92.09%, d_ap 2.2057, d_an 3.2281, loss 0.0201
+=====> lr adjusted to 0.0001383662
+	Step 10/Ep 158, 0.70s, prec 100.00%, sm 98.44%, d_ap 2.1258, d_an 3.1798, loss 0.0007
+	Step 20/Ep 158, 0.67s, prec 98.44%, sm 95.31%, d_ap 2.1675, d_an 3.3856, loss 0.0109
+Ep 158, 16.47s, prec 97.93%, sm 94.40%, d_ap 2.1943, d_an 3.3105, loss 0.0146
+=====> lr adjusted to 0.0001321387
+	Step 10/Ep 159, 0.71s, prec 99.22%, sm 96.09%, d_ap 2.2400, d_an 3.3378, loss 0.0066
+	Step 20/Ep 159, 0.70s, prec 100.00%, sm 98.44%, d_ap 2.2447, d_an 3.4765, loss 0.0020
+Ep 159, 16.42s, prec 98.68%, sm 94.90%, d_ap 2.2067, d_an 3.3340, loss 0.0118
+=====> lr adjusted to 0.0001261915
+	Step 10/Ep 160, 0.71s, prec 95.31%, sm 91.41%, d_ap 2.2683, d_an 3.3648, loss 0.0316
+	Step 20/Ep 160, 0.68s, prec 99.22%, sm 98.44%, d_ap 2.1502, d_an 3.2728, loss 0.0037
+Ep 160, 16.41s, prec 98.37%, sm 94.43%, d_ap 2.2082, d_an 3.3459, loss 0.0137
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 98.45%], [cmc1: 98.78%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 99.23%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_160.npz and latest_val.npz
+
+Validation: mAP=98.4504%, Rank-1=98.7775%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=99.2258%
+New best mAP: 0.984504 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+=====> lr adjusted to 0.0001205119
+	Step 10/Ep 161, 0.70s, prec 98.44%, sm 92.19%, d_ap 2.2608, d_an 3.2176, loss 0.0149
+	Step 20/Ep 161, 0.70s, prec 96.88%, sm 94.53%, d_ap 2.2717, d_an 3.4286, loss 0.0154
+Ep 161, 16.34s, prec 98.54%, sm 94.97%, d_ap 2.2080, d_an 3.3515, loss 0.0118
+=====> lr adjusted to 0.000115088
+	Step 10/Ep 162, 0.69s, prec 97.66%, sm 93.75%, d_ap 2.1620, d_an 3.3202, loss 0.0173
+	Step 20/Ep 162, 0.69s, prec 99.22%, sm 98.44%, d_ap 2.2312, d_an 3.4647, loss 0.0033
+Ep 162, 16.44s, prec 98.64%, sm 95.69%, d_ap 2.2111, d_an 3.3669, loss 0.0109
+=====> lr adjusted to 0.0001099082
+	Step 10/Ep 163, 0.70s, prec 99.22%, sm 98.44%, d_ap 2.2214, d_an 3.3526, loss 0.0025
+	Step 20/Ep 163, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.1505, d_an 3.4462, loss 0.0000
+Ep 163, 16.40s, prec 98.61%, sm 96.23%, d_ap 2.1909, d_an 3.3820, loss 0.0103
+=====> lr adjusted to 0.0001049615
+	Step 10/Ep 164, 0.70s, prec 99.22%, sm 96.09%, d_ap 2.0771, d_an 3.4537, loss 0.0083
+	Step 20/Ep 164, 0.69s, prec 100.00%, sm 96.88%, d_ap 2.2624, d_an 3.3715, loss 0.0033
+Ep 164, 16.34s, prec 98.98%, sm 96.06%, d_ap 2.1798, d_an 3.3726, loss 0.0094
+=====> lr adjusted to 0.0001002374
+	Step 10/Ep 165, 0.71s, prec 100.00%, sm 100.00%, d_ap 2.2009, d_an 3.5300, loss 0.0000
+	Step 20/Ep 165, 0.69s, prec 98.44%, sm 94.53%, d_ap 2.1586, d_an 3.3032, loss 0.0148
+Ep 165, 16.34s, prec 98.47%, sm 95.92%, d_ap 2.1710, d_an 3.3517, loss 0.0118
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 98.50%], [cmc1: 99.02%], [cmc5: 99.76%], [cmc10: 99.76%], [mINP: 99.28%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_165.npz and latest_val.npz
+
+Validation: mAP=98.5025%, Rank-1=99.0220%, Rank-5=99.7555%, Rank-10=99.7555%, mINP=99.2818%
+New best mAP: 0.985025 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+=====> lr adjusted to 0.000095726
+	Step 10/Ep 166, 0.72s, prec 100.00%, sm 96.88%, d_ap 2.1675, d_an 3.2753, loss 0.0013
+	Step 20/Ep 166, 0.67s, prec 100.00%, sm 100.00%, d_ap 2.2102, d_an 3.5441, loss 0.0000
+Ep 166, 16.39s, prec 99.29%, sm 96.77%, d_ap 2.1569, d_an 3.3890, loss 0.0059
+=====> lr adjusted to 0.0000914176
+	Step 10/Ep 167, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.1490, d_an 3.6064, loss 0.0000
+	Step 20/Ep 167, 0.69s, prec 95.31%, sm 89.06%, d_ap 2.2200, d_an 3.2391, loss 0.0311
+Ep 167, 16.35s, prec 98.85%, sm 96.47%, d_ap 2.1578, d_an 3.3928, loss 0.0090
+=====> lr adjusted to 0.0000873032
+	Step 10/Ep 168, 0.71s, prec 100.00%, sm 96.09%, d_ap 2.2319, d_an 3.4545, loss 0.0053
+	Step 20/Ep 168, 0.69s, prec 100.00%, sm 94.53%, d_ap 2.1714, d_an 3.4310, loss 0.0056
+Ep 168, 16.60s, prec 99.12%, sm 96.74%, d_ap 2.1670, d_an 3.3824, loss 0.0068
+=====> lr adjusted to 0.0000833739
+	Step 10/Ep 169, 0.71s, prec 98.44%, sm 96.09%, d_ap 2.2645, d_an 3.4559, loss 0.0117
+	Step 20/Ep 169, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.1598, d_an 3.6225, loss 0.0000
+Ep 169, 16.33s, prec 99.08%, sm 96.47%, d_ap 2.1552, d_an 3.4155, loss 0.0081
+=====> lr adjusted to 0.0000796214
+	Step 10/Ep 170, 0.71s, prec 99.22%, sm 97.66%, d_ap 2.1291, d_an 3.4230, loss 0.0051
+	Step 20/Ep 170, 0.68s, prec 100.00%, sm 99.22%, d_ap 2.2047, d_an 3.5411, loss 0.0004
+Ep 170, 16.42s, prec 99.39%, sm 97.42%, d_ap 2.1576, d_an 3.4483, loss 0.0056
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.14%], [cmc1: 99.51%], [cmc5: 99.76%], [cmc10: 99.76%], [mINP: 99.61%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_170.npz and latest_val.npz
+
+Validation: mAP=99.1438%, Rank-1=99.5110%, Rank-5=99.7555%, Rank-10=99.7555%, mINP=99.6129%
+New best mAP: 0.991438 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+=====> lr adjusted to 0.0000760379
+	Step 10/Ep 171, 0.69s, prec 100.00%, sm 96.88%, d_ap 2.2201, d_an 3.5917, loss 0.0032
+	Step 20/Ep 171, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.1209, d_an 3.5041, loss 0.0000
+Ep 171, 16.25s, prec 99.25%, sm 97.49%, d_ap 2.1547, d_an 3.4558, loss 0.0062
+=====> lr adjusted to 0.0000726156
+	Step 10/Ep 172, 0.71s, prec 100.00%, sm 96.88%, d_ap 2.1997, d_an 3.2625, loss 0.0024
+	Step 20/Ep 172, 0.70s, prec 97.66%, sm 96.88%, d_ap 2.2313, d_an 3.4180, loss 0.0139
+Ep 172, 16.52s, prec 99.52%, sm 98.13%, d_ap 2.1467, d_an 3.4568, loss 0.0045
+=====> lr adjusted to 0.0000693474
+	Step 10/Ep 173, 0.71s, prec 100.00%, sm 97.66%, d_ap 2.1077, d_an 3.4251, loss 0.0034
+	Step 20/Ep 173, 0.70s, prec 100.00%, sm 99.22%, d_ap 2.2030, d_an 3.3452, loss 0.0002
+Ep 173, 16.47s, prec 99.12%, sm 97.21%, d_ap 2.1486, d_an 3.4372, loss 0.0065
+=====> lr adjusted to 0.0000662262
+	Step 10/Ep 174, 0.70s, prec 100.00%, sm 97.66%, d_ap 2.1175, d_an 3.3934, loss 0.0043
+	Step 20/Ep 174, 0.70s, prec 100.00%, sm 98.44%, d_ap 2.1092, d_an 3.5113, loss 0.0007
+Ep 174, 16.48s, prec 99.66%, sm 97.55%, d_ap 2.1270, d_an 3.4384, loss 0.0043
+=====> lr adjusted to 0.0000632456
+	Step 10/Ep 175, 0.71s, prec 98.44%, sm 96.09%, d_ap 2.1557, d_an 3.4965, loss 0.0110
+	Step 20/Ep 175, 0.68s, prec 99.22%, sm 96.88%, d_ap 2.1235, d_an 3.4323, loss 0.0054
+Ep 175, 16.31s, prec 99.66%, sm 97.21%, d_ap 2.1438, d_an 3.4731, loss 0.0045
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.16%], [cmc1: 99.02%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 99.43%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_175.npz and latest_val.npz
+
+Validation: mAP=99.1635%, Rank-1=99.0220%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=99.4295%
+New best mAP: 0.991635 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+=====> lr adjusted to 0.000060399
+	Step 10/Ep 176, 0.70s, prec 100.00%, sm 99.22%, d_ap 2.1853, d_an 3.4750, loss 0.0005
+	Step 20/Ep 176, 0.69s, prec 100.00%, sm 99.22%, d_ap 2.1055, d_an 3.5287, loss 0.0003
+Ep 176, 16.24s, prec 99.22%, sm 98.06%, d_ap 2.1476, d_an 3.5031, loss 0.0050
+=====> lr adjusted to 0.0000576806
+	Step 10/Ep 177, 0.70s, prec 100.00%, sm 96.88%, d_ap 2.1124, d_an 3.3474, loss 0.0033
+	Step 20/Ep 177, 0.69s, prec 100.00%, sm 96.88%, d_ap 2.1854, d_an 3.4174, loss 0.0019
+Ep 177, 16.32s, prec 99.56%, sm 98.17%, d_ap 2.1646, d_an 3.4898, loss 0.0034
+=====> lr adjusted to 0.0000550846
+	Step 10/Ep 178, 0.68s, prec 99.22%, sm 96.88%, d_ap 2.0709, d_an 3.5129, loss 0.0063
+	Step 20/Ep 178, 0.67s, prec 100.00%, sm 100.00%, d_ap 2.1579, d_an 3.6121, loss 0.0000
+Ep 178, 16.39s, prec 99.76%, sm 98.74%, d_ap 2.1292, d_an 3.4991, loss 0.0024
+=====> lr adjusted to 0.0000526054
+	Step 10/Ep 179, 0.70s, prec 100.00%, sm 98.44%, d_ap 2.1905, d_an 3.3650, loss 0.0040
+	Step 20/Ep 179, 0.70s, prec 99.22%, sm 98.44%, d_ap 2.1264, d_an 3.2979, loss 0.0054
+Ep 179, 16.30s, prec 99.90%, sm 99.25%, d_ap 2.1287, d_an 3.4873, loss 0.0013
+=====> lr adjusted to 0.0000502377
+	Step 10/Ep 180, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.1173, d_an 3.5133, loss 0.0000
+	Step 20/Ep 180, 0.69s, prec 99.22%, sm 97.66%, d_ap 2.0872, d_an 3.5535, loss 0.0061
+Ep 180, 16.42s, prec 99.18%, sm 97.45%, d_ap 2.1207, d_an 3.4839, loss 0.0066
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.23%], [cmc1: 99.51%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 99.71%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_180.npz and latest_val.npz
+
+Validation: mAP=99.2268%, Rank-1=99.5110%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=99.7148%
+New best mAP: 0.992268 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+=====> lr adjusted to 0.0000479767
+	Step 10/Ep 181, 0.69s, prec 100.00%, sm 97.66%, d_ap 2.0928, d_an 3.4486, loss 0.0031
+	Step 20/Ep 181, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.0597, d_an 3.4911, loss 0.0000
+Ep 181, 16.20s, prec 99.69%, sm 98.61%, d_ap 2.1150, d_an 3.4945, loss 0.0027
+=====> lr adjusted to 0.0000458174
+	Step 10/Ep 182, 0.69s, prec 99.22%, sm 95.31%, d_ap 2.0805, d_an 3.4227, loss 0.0107
+	Step 20/Ep 182, 0.69s, prec 98.44%, sm 95.31%, d_ap 2.1193, d_an 3.4228, loss 0.0099
+Ep 182, 16.25s, prec 99.18%, sm 97.66%, d_ap 2.1067, d_an 3.4888, loss 0.0057
+=====> lr adjusted to 0.0000437552
+	Step 10/Ep 183, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.1179, d_an 3.5322, loss 0.0000
+	Step 20/Ep 183, 0.68s, prec 100.00%, sm 99.22%, d_ap 2.1120, d_an 3.5763, loss 0.0008
+Ep 183, 16.27s, prec 99.73%, sm 98.30%, d_ap 2.1225, d_an 3.4966, loss 0.0030
+=====> lr adjusted to 0.0000417859
+	Step 10/Ep 184, 0.72s, prec 99.22%, sm 98.44%, d_ap 2.2132, d_an 3.5113, loss 0.0043
+	Step 20/Ep 184, 0.70s, prec 100.00%, sm 99.22%, d_ap 2.2215, d_an 3.6031, loss 0.0023
+Ep 184, 16.29s, prec 99.49%, sm 97.76%, d_ap 2.1331, d_an 3.4975, loss 0.0044
+=====> lr adjusted to 0.0000399052
+	Step 10/Ep 185, 0.68s, prec 100.00%, sm 99.22%, d_ap 2.1368, d_an 3.4467, loss 0.0008
+	Step 20/Ep 185, 0.68s, prec 100.00%, sm 98.44%, d_ap 2.0301, d_an 3.5271, loss 0.0023
+Ep 185, 16.20s, prec 99.80%, sm 99.12%, d_ap 2.1083, d_an 3.5136, loss 0.0021
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.44%], [cmc1: 99.51%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 99.76%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_185.npz and latest_val.npz
+
+Validation: mAP=99.4362%, Rank-1=99.5110%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=99.7555%
+New best mAP: 0.994362 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+=====> lr adjusted to 0.0000381092
+	Step 10/Ep 186, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.1030, d_an 3.6061, loss 0.0000
+	Step 20/Ep 186, 0.69s, prec 100.00%, sm 99.22%, d_ap 2.1349, d_an 3.5096, loss 0.0002
+Ep 186, 16.29s, prec 99.56%, sm 97.96%, d_ap 2.1293, d_an 3.4820, loss 0.0036
+=====> lr adjusted to 0.000036394
+	Step 10/Ep 187, 0.69s, prec 99.22%, sm 95.31%, d_ap 2.0712, d_an 3.3756, loss 0.0096
+	Step 20/Ep 187, 0.67s, prec 98.44%, sm 98.44%, d_ap 2.0402, d_an 3.4304, loss 0.0054
+Ep 187, 16.24s, prec 99.25%, sm 98.17%, d_ap 2.1103, d_an 3.4679, loss 0.0051
+=====> lr adjusted to 0.000034756
+	Step 10/Ep 188, 0.72s, prec 99.22%, sm 99.22%, d_ap 2.0737, d_an 3.4541, loss 0.0031
+	Step 20/Ep 188, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0662, d_an 3.4197, loss 0.0000
+Ep 188, 16.45s, prec 99.35%, sm 98.54%, d_ap 2.0920, d_an 3.4575, loss 0.0047
+=====> lr adjusted to 0.0000331917
+	Step 10/Ep 189, 0.73s, prec 100.00%, sm 100.00%, d_ap 2.1108, d_an 3.5566, loss 0.0000
+	Step 20/Ep 189, 0.67s, prec 100.00%, sm 99.22%, d_ap 2.0215, d_an 3.4547, loss 0.0006
+Ep 189, 16.31s, prec 99.56%, sm 98.51%, d_ap 2.0990, d_an 3.4901, loss 0.0041
+=====> lr adjusted to 0.0000316979
+	Step 10/Ep 190, 0.70s, prec 100.00%, sm 98.44%, d_ap 2.1320, d_an 3.4782, loss 0.0018
+	Step 20/Ep 190, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0994, d_an 3.4713, loss 0.0000
+Ep 190, 16.49s, prec 99.97%, sm 98.91%, d_ap 2.0896, d_an 3.4848, loss 0.0016
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.29%], [cmc1: 99.51%], [cmc5: 99.76%], [cmc10: 100.00%], [mINP: 99.67%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_190.npz and latest_val.npz
+
+Validation: mAP=99.2889%, Rank-1=99.5110%, Rank-5=99.7555%, Rank-10=100.0000%, mINP=99.6740%
+=====> lr adjusted to 0.0000302712
+	Step 10/Ep 191, 0.70s, prec 99.22%, sm 95.31%, d_ap 2.0158, d_an 3.4572, loss 0.0062
+	Step 20/Ep 191, 0.70s, prec 100.00%, sm 98.44%, d_ap 2.1117, d_an 3.4477, loss 0.0011
+Ep 191, 16.38s, prec 99.63%, sm 98.74%, d_ap 2.0811, d_an 3.4813, loss 0.0030
+=====> lr adjusted to 0.0000289088
+	Step 10/Ep 192, 0.75s, prec 100.00%, sm 97.66%, d_ap 2.0983, d_an 3.5654, loss 0.0033
+	Step 20/Ep 192, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.1423, d_an 3.4700, loss 0.0000
+Ep 192, 16.35s, prec 99.66%, sm 98.40%, d_ap 2.1018, d_an 3.4635, loss 0.0030
+=====> lr adjusted to 0.0000276077
+	Step 10/Ep 193, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.1110, d_an 3.6695, loss 0.0000
+	Step 20/Ep 193, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.0159, d_an 3.5269, loss 0.0000
+Ep 193, 16.12s, prec 99.66%, sm 98.74%, d_ap 2.0901, d_an 3.4996, loss 0.0023
+=====> lr adjusted to 0.0000263651
+	Step 10/Ep 194, 0.71s, prec 100.00%, sm 100.00%, d_ap 2.0834, d_an 3.6527, loss 0.0000
+	Step 20/Ep 194, 0.73s, prec 100.00%, sm 100.00%, d_ap 2.1215, d_an 3.4893, loss 0.0000
+Ep 194, 16.94s, prec 99.66%, sm 98.85%, d_ap 2.0942, d_an 3.5379, loss 0.0023
+=====> lr adjusted to 0.0000251785
+	Step 10/Ep 195, 0.71s, prec 100.00%, sm 96.88%, d_ap 2.1044, d_an 3.5331, loss 0.0057
+	Step 20/Ep 195, 0.70s, prec 96.88%, sm 95.31%, d_ap 2.0973, d_an 3.5692, loss 0.0142
+Ep 195, 16.61s, prec 99.42%, sm 98.06%, d_ap 2.0996, d_an 3.5244, loss 0.0051
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.28%], [cmc1: 99.51%], [cmc5: 99.76%], [cmc10: 100.00%], [mINP: 99.67%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_195.npz and latest_val.npz
+
+Validation: mAP=99.2767%, Rank-1=99.5110%, Rank-5=99.7555%, Rank-10=100.0000%, mINP=99.6682%
+=====> lr adjusted to 0.0000240453
+	Step 10/Ep 196, 0.69s, prec 100.00%, sm 98.44%, d_ap 2.1363, d_an 3.5422, loss 0.0017
+	Step 20/Ep 196, 0.76s, prec 100.00%, sm 99.22%, d_ap 2.1898, d_an 3.5246, loss 0.0003
+Ep 196, 17.00s, prec 99.86%, sm 98.91%, d_ap 2.1194, d_an 3.4989, loss 0.0019
+=====> lr adjusted to 0.0000229631
+	Step 10/Ep 197, 0.72s, prec 99.22%, sm 98.44%, d_ap 2.0884, d_an 3.5912, loss 0.0034
+	Step 20/Ep 197, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.0726, d_an 3.4706, loss 0.0000
+Ep 197, 16.87s, prec 99.35%, sm 98.57%, d_ap 2.0891, d_an 3.5188, loss 0.0047
+=====> lr adjusted to 0.0000219296
+	Step 10/Ep 198, 0.72s, prec 100.00%, sm 100.00%, d_ap 2.0761, d_an 3.4592, loss 0.0000
+	Step 20/Ep 198, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0984, d_an 3.5776, loss 0.0000
+Ep 198, 16.62s, prec 99.63%, sm 98.44%, d_ap 2.0955, d_an 3.4801, loss 0.0032
+=====> lr adjusted to 0.0000209426
+	Step 10/Ep 199, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.0927, d_an 3.4505, loss 0.0000
+	Step 20/Ep 199, 0.70s, prec 100.00%, sm 99.22%, d_ap 2.0340, d_an 3.5296, loss 0.0001
+Ep 199, 16.73s, prec 99.76%, sm 98.64%, d_ap 2.0891, d_an 3.5142, loss 0.0026
+=====> lr adjusted to 0.00002
+	Step 10/Ep 200, 0.71s, prec 100.00%, sm 99.22%, d_ap 2.1436, d_an 3.6099, loss 0.0004
+	Step 20/Ep 200, 0.77s, prec 100.00%, sm 98.44%, d_ap 2.1557, d_an 3.5569, loss 0.0012
+Ep 200, 17.12s, prec 99.73%, sm 98.23%, d_ap 2.1022, d_an 3.5241, loss 0.0029
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.51%], [cmc1: 99.51%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 99.76%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_200.npz and latest_val.npz
+
+Validation: mAP=99.5099%, Rank-1=99.5110%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=99.7555%
+New best mAP: 0.995099 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+=====> lr adjusted to 0.0000190999
+	Step 10/Ep 201, 0.73s, prec 100.00%, sm 100.00%, d_ap 2.1193, d_an 3.4856, loss 0.0000
+	Step 20/Ep 201, 0.74s, prec 100.00%, sm 99.22%, d_ap 2.0364, d_an 3.4371, loss 0.0003
+Ep 201, 16.67s, prec 99.46%, sm 98.51%, d_ap 2.0921, d_an 3.5448, loss 0.0045
+=====> lr adjusted to 0.0000182402
+	Step 10/Ep 202, 0.71s, prec 100.00%, sm 100.00%, d_ap 2.1227, d_an 3.5088, loss 0.0000
+	Step 20/Ep 202, 0.78s, prec 100.00%, sm 96.09%, d_ap 2.0684, d_an 3.5089, loss 0.0036
+Ep 202, 16.68s, prec 99.80%, sm 98.64%, d_ap 2.0894, d_an 3.5256, loss 0.0021
+=====> lr adjusted to 0.0000174193
+	Step 10/Ep 203, 0.74s, prec 99.22%, sm 98.44%, d_ap 2.0416, d_an 3.3907, loss 0.0040
+	Step 20/Ep 203, 0.70s, prec 100.00%, sm 96.88%, d_ap 2.1179, d_an 3.3294, loss 0.0026
+Ep 203, 16.74s, prec 99.73%, sm 98.81%, d_ap 2.0860, d_an 3.5278, loss 0.0020
+=====> lr adjusted to 0.0000166353
+	Step 10/Ep 204, 0.73s, prec 100.00%, sm 100.00%, d_ap 2.0805, d_an 3.3744, loss 0.0000
+	Step 20/Ep 204, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.1210, d_an 3.5268, loss 0.0000
+Ep 204, 16.69s, prec 99.69%, sm 99.12%, d_ap 2.1067, d_an 3.5257, loss 0.0021
+=====> lr adjusted to 0.0000158866
+	Step 10/Ep 205, 0.73s, prec 100.00%, sm 100.00%, d_ap 2.1497, d_an 3.6388, loss 0.0000
+	Step 20/Ep 205, 0.69s, prec 100.00%, sm 99.22%, d_ap 2.1136, d_an 3.5946, loss 0.0004
+Ep 205, 16.70s, prec 99.49%, sm 98.27%, d_ap 2.1034, d_an 3.5250, loss 0.0049
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.60%], [cmc1: 99.76%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 99.88%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_205.npz and latest_val.npz
+
+Validation: mAP=99.5987%, Rank-1=99.7555%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=99.8778%
+New best mAP: 0.995987 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+=====> lr adjusted to 0.0000151716
+	Step 10/Ep 206, 0.70s, prec 100.00%, sm 99.22%, d_ap 2.0967, d_an 3.4510, loss 0.0016
+	Step 20/Ep 206, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.0967, d_an 3.5512, loss 0.0000
+Ep 206, 16.22s, prec 99.97%, sm 99.08%, d_ap 2.0904, d_an 3.5338, loss 0.0010
+=====> lr adjusted to 0.0000144887
+	Step 10/Ep 207, 0.70s, prec 99.22%, sm 97.66%, d_ap 2.0762, d_an 3.3574, loss 0.0057
+	Step 20/Ep 207, 0.69s, prec 100.00%, sm 98.44%, d_ap 2.0413, d_an 3.5544, loss 0.0012
+Ep 207, 16.41s, prec 99.93%, sm 99.08%, d_ap 2.0935, d_an 3.5292, loss 0.0014
+=====> lr adjusted to 0.0000138366
+	Step 10/Ep 208, 0.71s, prec 100.00%, sm 100.00%, d_ap 2.0734, d_an 3.5680, loss 0.0000
+	Step 20/Ep 208, 0.69s, prec 100.00%, sm 99.22%, d_ap 2.1409, d_an 3.5438, loss 0.0001
+Ep 208, 16.58s, prec 99.80%, sm 98.85%, d_ap 2.0981, d_an 3.5391, loss 0.0022
+=====> lr adjusted to 0.0000132139
+	Step 10/Ep 209, 0.71s, prec 96.09%, sm 92.19%, d_ap 2.1005, d_an 3.4764, loss 0.0222
+	Step 20/Ep 209, 0.70s, prec 100.00%, sm 99.22%, d_ap 2.1352, d_an 3.6971, loss 0.0007
+Ep 209, 16.45s, prec 99.76%, sm 99.05%, d_ap 2.1107, d_an 3.5680, loss 0.0018
+=====> lr adjusted to 0.0000126191
+	Step 10/Ep 210, 0.75s, prec 100.00%, sm 100.00%, d_ap 2.1652, d_an 3.5066, loss 0.0000
+	Step 20/Ep 210, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.0725, d_an 3.5714, loss 0.0000
+Ep 210, 16.41s, prec 99.73%, sm 99.15%, d_ap 2.1027, d_an 3.5687, loss 0.0018
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.68%], [cmc1: 100.00%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 100.00%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_210.npz and latest_val.npz
+
+Validation: mAP=99.6811%, Rank-1=100.0000%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=100.0000%
+New best mAP: 0.996811 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+=====> lr adjusted to 0.0000120512
+	Step 10/Ep 211, 0.70s, prec 99.22%, sm 99.22%, d_ap 2.0228, d_an 3.3353, loss 0.0029
+	Step 20/Ep 211, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.0781, d_an 3.5875, loss 0.0000
+Ep 211, 16.38s, prec 99.73%, sm 98.85%, d_ap 2.0966, d_an 3.5632, loss 0.0020
+=====> lr adjusted to 0.0000115088
+	Step 10/Ep 212, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.1094, d_an 3.6106, loss 0.0000
+	Step 20/Ep 212, 0.70s, prec 100.00%, sm 99.22%, d_ap 2.0216, d_an 3.6768, loss 0.0011
+Ep 212, 16.26s, prec 99.73%, sm 98.85%, d_ap 2.1073, d_an 3.5886, loss 0.0020
+=====> lr adjusted to 0.0000109908
+	Step 10/Ep 213, 0.71s, prec 100.00%, sm 100.00%, d_ap 2.0684, d_an 3.5465, loss 0.0000
+	Step 20/Ep 213, 0.69s, prec 100.00%, sm 99.22%, d_ap 2.1058, d_an 3.5819, loss 0.0010
+Ep 213, 16.27s, prec 99.93%, sm 99.18%, d_ap 2.1059, d_an 3.5968, loss 0.0012
+=====> lr adjusted to 0.0000104961
+	Step 10/Ep 214, 0.70s, prec 100.00%, sm 98.44%, d_ap 2.1568, d_an 3.5988, loss 0.0018
+	Step 20/Ep 214, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.0845, d_an 3.6191, loss 0.0000
+Ep 214, 16.65s, prec 99.80%, sm 98.85%, d_ap 2.0987, d_an 3.5643, loss 0.0022
+=====> lr adjusted to 0.0000100237
+	Step 10/Ep 215, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.0951, d_an 3.7323, loss 0.0000
+	Step 20/Ep 215, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.1547, d_an 3.5742, loss 0.0000
+Ep 215, 16.51s, prec 99.73%, sm 99.05%, d_ap 2.1036, d_an 3.5790, loss 0.0017
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.64%], [cmc1: 100.00%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 100.00%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_215.npz and latest_val.npz
+
+Validation: mAP=99.6421%, Rank-1=100.0000%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=100.0000%
+=====> lr adjusted to 0.0000095726
+	Step 10/Ep 216, 0.70s, prec 100.00%, sm 98.44%, d_ap 2.2318, d_an 3.5907, loss 0.0004
+	Step 20/Ep 216, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.1275, d_an 3.6227, loss 0.0000
+Ep 216, 16.30s, prec 99.86%, sm 99.12%, d_ap 2.1012, d_an 3.6045, loss 0.0014
+=====> lr adjusted to 0.0000091418
+	Step 10/Ep 217, 0.71s, prec 100.00%, sm 100.00%, d_ap 2.0902, d_an 3.7098, loss 0.0000
+	Step 20/Ep 217, 0.69s, prec 100.00%, sm 99.22%, d_ap 2.1208, d_an 3.6878, loss 0.0022
+Ep 217, 16.34s, prec 99.93%, sm 99.12%, d_ap 2.1021, d_an 3.5935, loss 0.0013
+=====> lr adjusted to 0.0000087303
+	Step 10/Ep 218, 0.69s, prec 100.00%, sm 96.88%, d_ap 2.1444, d_an 3.5086, loss 0.0023
+	Step 20/Ep 218, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.1851, d_an 3.5620, loss 0.0000
+Ep 218, 16.21s, prec 99.93%, sm 99.56%, d_ap 2.1050, d_an 3.6098, loss 0.0008
+=====> lr adjusted to 0.0000083374
+	Step 10/Ep 219, 0.69s, prec 100.00%, sm 98.44%, d_ap 2.0599, d_an 3.4497, loss 0.0016
+	Step 20/Ep 219, 0.68s, prec 100.00%, sm 99.22%, d_ap 2.1978, d_an 3.6317, loss 0.0010
+Ep 219, 16.25s, prec 99.97%, sm 99.42%, d_ap 2.0956, d_an 3.5901, loss 0.0008
+=====> lr adjusted to 0.0000079621
+	Step 10/Ep 220, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.1095, d_an 3.7091, loss 0.0000
+	Step 20/Ep 220, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.1650, d_an 3.6563, loss 0.0000
+Ep 220, 16.30s, prec 99.76%, sm 99.12%, d_ap 2.1016, d_an 3.5754, loss 0.0022
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.63%], [cmc1: 100.00%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 100.00%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_220.npz and latest_val.npz
+
+Validation: mAP=99.6310%, Rank-1=100.0000%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=100.0000%
+=====> lr adjusted to 0.0000076038
+	Step 10/Ep 221, 0.71s, prec 100.00%, sm 99.22%, d_ap 2.1395, d_an 3.5558, loss 0.0005
+	Step 20/Ep 221, 0.70s, prec 99.22%, sm 96.88%, d_ap 2.1006, d_an 3.5393, loss 0.0048
+Ep 221, 16.32s, prec 99.83%, sm 99.01%, d_ap 2.0976, d_an 3.5621, loss 0.0020
+=====> lr adjusted to 0.0000072616
+	Step 10/Ep 222, 0.71s, prec 100.00%, sm 100.00%, d_ap 2.0854, d_an 3.6376, loss 0.0000
+	Step 20/Ep 222, 0.68s, prec 100.00%, sm 98.44%, d_ap 2.1275, d_an 3.6654, loss 0.0025
+Ep 222, 16.29s, prec 99.80%, sm 99.05%, d_ap 2.0876, d_an 3.5973, loss 0.0019
+=====> lr adjusted to 0.0000069347
+	Step 10/Ep 223, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.1171, d_an 3.6829, loss 0.0000
+	Step 20/Ep 223, 0.68s, prec 100.00%, sm 99.22%, d_ap 2.1205, d_an 3.4663, loss 0.0013
+Ep 223, 16.13s, prec 99.83%, sm 99.39%, d_ap 2.0797, d_an 3.5706, loss 0.0013
+=====> lr adjusted to 0.0000066226
+	Step 10/Ep 224, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.0543, d_an 3.5638, loss 0.0000
+	Step 20/Ep 224, 0.69s, prec 100.00%, sm 98.44%, d_ap 2.0412, d_an 3.5956, loss 0.0016
+Ep 224, 16.17s, prec 99.63%, sm 99.15%, d_ap 2.0847, d_an 3.5885, loss 0.0027
+=====> lr adjusted to 0.0000063246
+	Step 10/Ep 225, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.1244, d_an 3.6115, loss 0.0000
+	Step 20/Ep 225, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.0944, d_an 3.7001, loss 0.0000
+Ep 225, 16.20s, prec 99.93%, sm 99.56%, d_ap 2.0886, d_an 3.5992, loss 0.0007
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.61%], [cmc1: 100.00%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 100.00%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_225.npz and latest_val.npz
+
+Validation: mAP=99.6130%, Rank-1=100.0000%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=100.0000%
+=====> lr adjusted to 0.0000060399
+	Step 10/Ep 226, 0.70s, prec 93.75%, sm 93.75%, d_ap 2.0678, d_an 3.4771, loss 0.0473
+	Step 20/Ep 226, 0.76s, prec 100.00%, sm 99.22%, d_ap 2.0102, d_an 3.4570, loss 0.0016
+Ep 226, 16.36s, prec 99.59%, sm 99.12%, d_ap 2.0803, d_an 3.5823, loss 0.0032
+=====> lr adjusted to 0.0000057681
+	Step 10/Ep 227, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.0732, d_an 3.5184, loss 0.0000
+	Step 20/Ep 227, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.1042, d_an 3.5574, loss 0.0000
+Ep 227, 16.16s, prec 99.97%, sm 99.86%, d_ap 2.0805, d_an 3.5824, loss 0.0003
+=====> lr adjusted to 0.0000055085
+	Step 10/Ep 228, 0.68s, prec 100.00%, sm 99.22%, d_ap 2.0854, d_an 3.5772, loss 0.0000
+	Step 20/Ep 228, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0345, d_an 3.6193, loss 0.0000
+Ep 228, 16.22s, prec 99.93%, sm 99.22%, d_ap 2.0838, d_an 3.5848, loss 0.0010
+=====> lr adjusted to 0.0000052605
+	Step 10/Ep 229, 0.70s, prec 94.53%, sm 93.75%, d_ap 2.0186, d_an 3.4246, loss 0.0356
+	Step 20/Ep 229, 0.67s, prec 100.00%, sm 100.00%, d_ap 2.0817, d_an 3.6946, loss 0.0000
+Ep 229, 16.14s, prec 99.69%, sm 99.01%, d_ap 2.0755, d_an 3.5749, loss 0.0027
+=====> lr adjusted to 0.0000050238
+	Step 10/Ep 230, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.1140, d_an 3.5941, loss 0.0000
+	Step 20/Ep 230, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.0444, d_an 3.5870, loss 0.0000
+Ep 230, 16.23s, prec 99.86%, sm 99.05%, d_ap 2.0749, d_an 3.5773, loss 0.0019
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.63%], [cmc1: 100.00%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 100.00%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_230.npz and latest_val.npz
+
+Validation: mAP=99.6331%, Rank-1=100.0000%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=100.0000%
+=====> lr adjusted to 0.0000047977
+	Step 10/Ep 231, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0292, d_an 3.6691, loss 0.0000
+	Step 20/Ep 231, 0.69s, prec 100.00%, sm 100.00%, d_ap 1.9987, d_an 3.4157, loss 0.0000
+Ep 231, 16.35s, prec 99.42%, sm 98.71%, d_ap 2.0867, d_an 3.5616, loss 0.0039
+=====> lr adjusted to 0.0000045817
+	Step 10/Ep 232, 0.74s, prec 100.00%, sm 100.00%, d_ap 1.9971, d_an 3.7303, loss 0.0000
+	Step 20/Ep 232, 0.69s, prec 99.22%, sm 99.22%, d_ap 2.0724, d_an 3.6142, loss 0.0029
+Ep 232, 16.29s, prec 99.86%, sm 99.56%, d_ap 2.0803, d_an 3.5582, loss 0.0007
+=====> lr adjusted to 0.0000043755
+	Step 10/Ep 233, 0.69s, prec 99.22%, sm 98.44%, d_ap 2.0052, d_an 3.6001, loss 0.0042
+	Step 20/Ep 233, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.0794, d_an 3.6041, loss 0.0000
+Ep 233, 16.21s, prec 99.90%, sm 99.05%, d_ap 2.0861, d_an 3.6096, loss 0.0013
+=====> lr adjusted to 0.0000041786
+	Step 10/Ep 234, 0.69s, prec 100.00%, sm 99.22%, d_ap 2.0995, d_an 3.6748, loss 0.0006
+	Step 20/Ep 234, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.0981, d_an 3.7170, loss 0.0000
+Ep 234, 16.17s, prec 99.86%, sm 99.22%, d_ap 2.0850, d_an 3.5754, loss 0.0014
+=====> lr adjusted to 0.0000039905
+	Step 10/Ep 235, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0055, d_an 3.6401, loss 0.0000
+	Step 20/Ep 235, 0.67s, prec 100.00%, sm 100.00%, d_ap 2.0842, d_an 3.6187, loss 0.0000
+Ep 235, 16.29s, prec 99.93%, sm 99.56%, d_ap 2.0721, d_an 3.5924, loss 0.0006
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.72%], [cmc1: 100.00%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 100.00%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_235.npz and latest_val.npz
+
+Validation: mAP=99.7208%, Rank-1=100.0000%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=100.0000%
+New best mAP: 0.997208 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+=====> lr adjusted to 0.0000038109
+	Step 10/Ep 236, 0.74s, prec 100.00%, sm 98.44%, d_ap 2.1146, d_an 3.5601, loss 0.0009
+	Step 20/Ep 236, 0.71s, prec 100.00%, sm 100.00%, d_ap 2.0327, d_an 3.7500, loss 0.0000
+Ep 236, 16.13s, prec 99.93%, sm 99.76%, d_ap 2.0685, d_an 3.6039, loss 0.0003
+=====> lr adjusted to 0.0000036394
+	Step 10/Ep 237, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0864, d_an 3.6505, loss 0.0000
+	Step 20/Ep 237, 0.67s, prec 99.22%, sm 96.88%, d_ap 2.1303, d_an 3.4605, loss 0.0052
+Ep 237, 16.15s, prec 99.93%, sm 99.39%, d_ap 2.0901, d_an 3.5781, loss 0.0007
+=====> lr adjusted to 0.0000034756
+	Step 10/Ep 238, 0.69s, prec 100.00%, sm 96.88%, d_ap 2.1436, d_an 3.6025, loss 0.0032
+	Step 20/Ep 238, 0.69s, prec 100.00%, sm 100.00%, d_ap 1.9988, d_an 3.6539, loss 0.0000
+Ep 238, 16.28s, prec 99.83%, sm 99.08%, d_ap 2.0799, d_an 3.5889, loss 0.0018
+=====> lr adjusted to 0.0000033192
+	Step 10/Ep 239, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0587, d_an 3.6438, loss 0.0000
+	Step 20/Ep 239, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.0722, d_an 3.6871, loss 0.0000
+Ep 239, 16.25s, prec 99.97%, sm 99.39%, d_ap 2.0738, d_an 3.5707, loss 0.0009
+=====> lr adjusted to 0.0000031698
+	Step 10/Ep 240, 0.72s, prec 100.00%, sm 100.00%, d_ap 2.0700, d_an 3.6483, loss 0.0000
+	Step 20/Ep 240, 0.71s, prec 99.22%, sm 98.44%, d_ap 2.0973, d_an 3.5992, loss 0.0039
+Ep 240, 16.35s, prec 99.52%, sm 98.51%, d_ap 2.0901, d_an 3.5749, loss 0.0041
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.73%], [cmc1: 100.00%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 100.00%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_240.npz and latest_val.npz
+
+Validation: mAP=99.7320%, Rank-1=100.0000%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=100.0000%
+New best mAP: 0.997320 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+=====> lr adjusted to 0.0000030271
+	Step 10/Ep 241, 0.68s, prec 100.00%, sm 99.22%, d_ap 2.1060, d_an 3.5308, loss 0.0010
+	Step 20/Ep 241, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.0823, d_an 3.5833, loss 0.0000
+Ep 241, 16.30s, prec 99.73%, sm 99.12%, d_ap 2.0874, d_an 3.5924, loss 0.0023
+=====> lr adjusted to 0.0000028909
+	Step 10/Ep 242, 0.70s, prec 100.00%, sm 98.44%, d_ap 2.1257, d_an 3.7253, loss 0.0012
+	Step 20/Ep 242, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0762, d_an 3.5851, loss 0.0000
+Ep 242, 16.34s, prec 99.73%, sm 98.88%, d_ap 2.0886, d_an 3.5781, loss 0.0025
+=====> lr adjusted to 0.0000027608
+	Step 10/Ep 243, 0.72s, prec 100.00%, sm 99.22%, d_ap 2.1534, d_an 3.5616, loss 0.0010
+	Step 20/Ep 243, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0443, d_an 3.6160, loss 0.0000
+Ep 243, 16.26s, prec 99.97%, sm 99.52%, d_ap 2.0833, d_an 3.5797, loss 0.0005
+=====> lr adjusted to 0.0000026365
+	Step 10/Ep 244, 0.71s, prec 100.00%, sm 98.44%, d_ap 2.0893, d_an 3.5017, loss 0.0005
+	Step 20/Ep 244, 0.71s, prec 100.00%, sm 100.00%, d_ap 2.0601, d_an 3.5875, loss 0.0000
+Ep 244, 16.31s, prec 100.00%, sm 99.49%, d_ap 2.0799, d_an 3.5942, loss 0.0006
+=====> lr adjusted to 0.0000025179
+	Step 10/Ep 245, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.1006, d_an 3.5932, loss 0.0000
+	Step 20/Ep 245, 0.69s, prec 100.00%, sm 96.88%, d_ap 2.0804, d_an 3.5698, loss 0.0027
+Ep 245, 16.43s, prec 99.76%, sm 99.01%, d_ap 2.0829, d_an 3.5899, loss 0.0019
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.73%], [cmc1: 100.00%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 100.00%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_245.npz and latest_val.npz
+
+Validation: mAP=99.7309%, Rank-1=100.0000%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=100.0000%
+=====> lr adjusted to 0.0000024045
+	Step 10/Ep 246, 0.70s, prec 99.22%, sm 99.22%, d_ap 2.0747, d_an 3.5855, loss 0.0030
+	Step 20/Ep 246, 0.67s, prec 100.00%, sm 100.00%, d_ap 2.0915, d_an 3.5203, loss 0.0000
+Ep 246, 16.41s, prec 99.97%, sm 99.52%, d_ap 2.0858, d_an 3.5821, loss 0.0005
+=====> lr adjusted to 0.0000022963
+	Step 10/Ep 247, 0.71s, prec 100.00%, sm 100.00%, d_ap 2.0240, d_an 3.5563, loss 0.0000
+	Step 20/Ep 247, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.0219, d_an 3.6504, loss 0.0000
+Ep 247, 16.26s, prec 99.59%, sm 99.15%, d_ap 2.0826, d_an 3.6035, loss 0.0026
+=====> lr adjusted to 0.000002193
+	Step 10/Ep 248, 0.71s, prec 100.00%, sm 100.00%, d_ap 2.1117, d_an 3.6186, loss 0.0000
+	Step 20/Ep 248, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0964, d_an 3.5840, loss 0.0000
+Ep 248, 16.41s, prec 99.73%, sm 99.22%, d_ap 2.0803, d_an 3.5831, loss 0.0024
+=====> lr adjusted to 0.0000020943
+	Step 10/Ep 249, 0.69s, prec 100.00%, sm 99.22%, d_ap 2.1361, d_an 3.5589, loss 0.0012
+	Step 20/Ep 249, 0.68s, prec 100.00%, sm 97.66%, d_ap 2.0473, d_an 3.6679, loss 0.0019
+Ep 249, 16.14s, prec 99.86%, sm 99.46%, d_ap 2.0856, d_an 3.5871, loss 0.0012
+=====> lr adjusted to 0.000002
+	Step 10/Ep 250, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.1007, d_an 3.7093, loss 0.0000
+	Step 20/Ep 250, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.1080, d_an 3.7325, loss 0.0000
+Ep 250, 16.17s, prec 99.90%, sm 99.18%, d_ap 2.0903, d_an 3.5799, loss 0.0015
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.74%], [cmc1: 100.00%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 100.00%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_250.npz and latest_val.npz
+
+Validation: mAP=99.7402%, Rank-1=100.0000%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=100.0000%
+New best mAP: 0.997402 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+=====> lr adjusted to 0.00000191
+	Step 10/Ep 251, 0.71s, prec 100.00%, sm 100.00%, d_ap 2.0531, d_an 3.5724, loss 0.0000
+	Step 20/Ep 251, 0.68s, prec 100.00%, sm 99.22%, d_ap 2.0926, d_an 3.6433, loss 0.0004
+Ep 251, 16.19s, prec 99.76%, sm 99.42%, d_ap 2.0862, d_an 3.6031, loss 0.0016
+=====> lr adjusted to 0.000001824
+	Step 10/Ep 252, 0.71s, prec 100.00%, sm 99.22%, d_ap 2.0929, d_an 3.4810, loss 0.0005
+	Step 20/Ep 252, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.0534, d_an 3.6286, loss 0.0000
+Ep 252, 16.52s, prec 99.90%, sm 99.42%, d_ap 2.0725, d_an 3.5930, loss 0.0011
+=====> lr adjusted to 0.0000017419
+	Step 10/Ep 253, 0.71s, prec 100.00%, sm 100.00%, d_ap 2.0873, d_an 3.6208, loss 0.0000
+	Step 20/Ep 253, 0.70s, prec 100.00%, sm 99.22%, d_ap 2.0373, d_an 3.6161, loss 0.0012
+Ep 253, 16.19s, prec 99.63%, sm 99.18%, d_ap 2.0747, d_an 3.5942, loss 0.0034
+=====> lr adjusted to 0.0000016635
+	Step 10/Ep 254, 0.71s, prec 100.00%, sm 100.00%, d_ap 2.0691, d_an 3.7527, loss 0.0000
+	Step 20/Ep 254, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.1049, d_an 3.7578, loss 0.0000
+Ep 254, 16.30s, prec 99.80%, sm 99.39%, d_ap 2.0852, d_an 3.6029, loss 0.0014
+=====> lr adjusted to 0.0000015887
+	Step 10/Ep 255, 0.70s, prec 100.00%, sm 99.22%, d_ap 2.1187, d_an 3.6115, loss 0.0003
+	Step 20/Ep 255, 0.68s, prec 99.22%, sm 99.22%, d_ap 2.1047, d_an 3.6437, loss 0.0038
+Ep 255, 16.23s, prec 99.86%, sm 99.39%, d_ap 2.0664, d_an 3.6031, loss 0.0010
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.77%], [cmc1: 100.00%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 100.00%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_255.npz and latest_val.npz
+
+Validation: mAP=99.7681%, Rank-1=100.0000%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=100.0000%
+New best mAP: 0.997681 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+=====> lr adjusted to 0.0000015172
+	Step 10/Ep 256, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.0534, d_an 3.4974, loss 0.0000
+	Step 20/Ep 256, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.0247, d_an 3.6215, loss 0.0000
+Ep 256, 16.38s, prec 99.69%, sm 99.05%, d_ap 2.0902, d_an 3.5599, loss 0.0027
+=====> lr adjusted to 0.0000014489
+	Step 10/Ep 257, 0.71s, prec 100.00%, sm 100.00%, d_ap 2.0727, d_an 3.6111, loss 0.0000
+	Step 20/Ep 257, 0.69s, prec 100.00%, sm 99.22%, d_ap 2.0250, d_an 3.4457, loss 0.0000
+Ep 257, 16.27s, prec 99.90%, sm 99.35%, d_ap 2.0691, d_an 3.5619, loss 0.0008
+=====> lr adjusted to 0.0000013837
+	Step 10/Ep 258, 0.69s, prec 100.00%, sm 96.88%, d_ap 2.0798, d_an 3.4490, loss 0.0060
+	Step 20/Ep 258, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.1033, d_an 3.4789, loss 0.0000
+Ep 258, 16.51s, prec 99.97%, sm 99.56%, d_ap 2.0805, d_an 3.5803, loss 0.0007
+=====> lr adjusted to 0.0000013214
+	Step 10/Ep 259, 0.74s, prec 100.00%, sm 98.44%, d_ap 2.1253, d_an 3.5510, loss 0.0014
+	Step 20/Ep 259, 0.67s, prec 100.00%, sm 99.22%, d_ap 2.0772, d_an 3.6570, loss 0.0013
+Ep 259, 16.39s, prec 99.49%, sm 98.78%, d_ap 2.0659, d_an 3.5805, loss 0.0037
+=====> lr adjusted to 0.0000012619
+	Step 10/Ep 260, 0.73s, prec 100.00%, sm 99.22%, d_ap 2.0919, d_an 3.5451, loss 0.0008
+	Step 20/Ep 260, 0.70s, prec 100.00%, sm 99.22%, d_ap 2.1015, d_an 3.6098, loss 0.0000
+Ep 260, 16.38s, prec 99.90%, sm 99.56%, d_ap 2.0887, d_an 3.5677, loss 0.0011
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.75%], [cmc1: 100.00%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 100.00%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_260.npz and latest_val.npz
+
+Validation: mAP=99.7529%, Rank-1=100.0000%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=100.0000%
+=====> lr adjusted to 0.0000012051
+	Step 10/Ep 261, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.0754, d_an 3.6775, loss 0.0000
+	Step 20/Ep 261, 0.69s, prec 100.00%, sm 98.44%, d_ap 2.0771, d_an 3.4204, loss 0.0018
+Ep 261, 16.29s, prec 99.97%, sm 99.22%, d_ap 2.0710, d_an 3.5689, loss 0.0008
+=====> lr adjusted to 0.0000011509
+	Step 10/Ep 262, 0.71s, prec 100.00%, sm 100.00%, d_ap 2.0590, d_an 3.5699, loss 0.0000
+	Step 20/Ep 262, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0768, d_an 3.5088, loss 0.0000
+Ep 262, 16.40s, prec 99.97%, sm 99.69%, d_ap 2.0682, d_an 3.5958, loss 0.0005
+=====> lr adjusted to 0.0000010991
+	Step 10/Ep 263, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.0409, d_an 3.6859, loss 0.0000
+	Step 20/Ep 263, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0837, d_an 3.7120, loss 0.0000
+Ep 263, 16.24s, prec 99.97%, sm 99.76%, d_ap 2.0689, d_an 3.5964, loss 0.0004
+=====> lr adjusted to 0.0000010496
+	Step 10/Ep 264, 0.70s, prec 97.66%, sm 97.66%, d_ap 2.1553, d_an 3.5541, loss 0.0101
+	Step 20/Ep 264, 0.67s, prec 100.00%, sm 99.22%, d_ap 2.1543, d_an 3.7408, loss 0.0002
+Ep 264, 16.34s, prec 99.83%, sm 99.25%, d_ap 2.0803, d_an 3.6099, loss 0.0016
+=====> lr adjusted to 0.0000010024
+	Step 10/Ep 265, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.0126, d_an 3.5099, loss 0.0000
+	Step 20/Ep 265, 0.69s, prec 98.44%, sm 96.88%, d_ap 2.0568, d_an 3.5336, loss 0.0095
+Ep 265, 16.48s, prec 99.63%, sm 99.15%, d_ap 2.0619, d_an 3.6144, loss 0.0033
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.79%], [cmc1: 100.00%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 100.00%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_265.npz and latest_val.npz
+
+Validation: mAP=99.7908%, Rank-1=100.0000%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=100.0000%
+New best mAP: 0.997908 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+=====> lr adjusted to 0.0000009573
+	Step 10/Ep 266, 0.72s, prec 100.00%, sm 99.22%, d_ap 2.0321, d_an 3.5139, loss 0.0018
+	Step 20/Ep 266, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.1188, d_an 3.6824, loss 0.0000
+Ep 266, 16.35s, prec 99.90%, sm 99.15%, d_ap 2.0679, d_an 3.5681, loss 0.0011
+=====> lr adjusted to 0.0000009142
+	Step 10/Ep 267, 0.72s, prec 100.00%, sm 100.00%, d_ap 2.1380, d_an 3.5815, loss 0.0000
+	Step 20/Ep 267, 0.67s, prec 100.00%, sm 100.00%, d_ap 2.0704, d_an 3.5938, loss 0.0000
+Ep 267, 16.48s, prec 100.00%, sm 99.76%, d_ap 2.0820, d_an 3.5942, loss 0.0002
+=====> lr adjusted to 0.000000873
+	Step 10/Ep 268, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0660, d_an 3.7064, loss 0.0000
+	Step 20/Ep 268, 0.67s, prec 100.00%, sm 100.00%, d_ap 2.1403, d_an 3.4806, loss 0.0000
+Ep 268, 16.25s, prec 99.49%, sm 98.78%, d_ap 2.0825, d_an 3.5727, loss 0.0039
+=====> lr adjusted to 0.0000008337
+	Step 10/Ep 269, 0.71s, prec 100.00%, sm 100.00%, d_ap 2.0789, d_an 3.4809, loss 0.0000
+	Step 20/Ep 269, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0991, d_an 3.6840, loss 0.0000
+Ep 269, 16.37s, prec 99.83%, sm 98.68%, d_ap 2.0859, d_an 3.5764, loss 0.0023
+=====> lr adjusted to 0.0000007962
+	Step 10/Ep 270, 0.72s, prec 100.00%, sm 100.00%, d_ap 2.0847, d_an 3.5203, loss 0.0000
+	Step 20/Ep 270, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.0385, d_an 3.6791, loss 0.0000
+Ep 270, 16.32s, prec 99.90%, sm 99.29%, d_ap 2.0696, d_an 3.5884, loss 0.0010
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.79%], [cmc1: 100.00%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 100.00%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_270.npz and latest_val.npz
+
+Validation: mAP=99.7868%, Rank-1=100.0000%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=100.0000%
+=====> lr adjusted to 0.0000007604
+	Step 10/Ep 271, 0.69s, prec 100.00%, sm 99.22%, d_ap 2.0588, d_an 3.5092, loss 0.0001
+	Step 20/Ep 271, 0.68s, prec 99.22%, sm 98.44%, d_ap 2.0759, d_an 3.4250, loss 0.0034
+Ep 271, 16.16s, prec 99.93%, sm 99.52%, d_ap 2.0790, d_an 3.5866, loss 0.0006
+=====> lr adjusted to 0.0000007262
+	Step 10/Ep 272, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.0470, d_an 3.5761, loss 0.0000
+	Step 20/Ep 272, 0.69s, prec 100.00%, sm 98.44%, d_ap 2.1005, d_an 3.5286, loss 0.0035
+Ep 272, 16.24s, prec 100.00%, sm 99.69%, d_ap 2.0804, d_an 3.6048, loss 0.0004
+=====> lr adjusted to 0.0000006935
+	Step 10/Ep 273, 0.75s, prec 100.00%, sm 100.00%, d_ap 2.0861, d_an 3.4034, loss 0.0000
+	Step 20/Ep 273, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0952, d_an 3.5006, loss 0.0000
+Ep 273, 16.45s, prec 99.76%, sm 98.81%, d_ap 2.0832, d_an 3.5559, loss 0.0023
+=====> lr adjusted to 0.0000006623
+	Step 10/Ep 274, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.1110, d_an 3.5055, loss 0.0000
+	Step 20/Ep 274, 0.69s, prec 100.00%, sm 98.44%, d_ap 2.0510, d_an 3.4936, loss 0.0008
+Ep 274, 16.25s, prec 99.63%, sm 98.95%, d_ap 2.0763, d_an 3.5928, loss 0.0028
+=====> lr adjusted to 0.0000006325
+	Step 10/Ep 275, 0.70s, prec 100.00%, sm 99.22%, d_ap 2.1508, d_an 3.5114, loss 0.0002
+	Step 20/Ep 275, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.0982, d_an 3.4855, loss 0.0000
+Ep 275, 16.62s, prec 99.93%, sm 99.49%, d_ap 2.0869, d_an 3.5701, loss 0.0007
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.79%], [cmc1: 100.00%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 100.00%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_275.npz and latest_val.npz
+
+Validation: mAP=99.7905%, Rank-1=100.0000%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=100.0000%
+=====> lr adjusted to 0.000000604
+	Step 10/Ep 276, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.0751, d_an 3.6122, loss 0.0000
+	Step 20/Ep 276, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.0616, d_an 3.7599, loss 0.0000
+Ep 276, 16.27s, prec 99.97%, sm 99.52%, d_ap 2.0767, d_an 3.5958, loss 0.0005
+=====> lr adjusted to 0.0000005768
+	Step 10/Ep 277, 0.69s, prec 100.00%, sm 97.66%, d_ap 2.1665, d_an 3.4513, loss 0.0015
+	Step 20/Ep 277, 0.69s, prec 100.00%, sm 97.66%, d_ap 2.1114, d_an 3.4813, loss 0.0037
+Ep 277, 16.36s, prec 99.39%, sm 98.71%, d_ap 2.0758, d_an 3.5672, loss 0.0052
+=====> lr adjusted to 0.0000005508
+	Step 10/Ep 278, 0.71s, prec 100.00%, sm 100.00%, d_ap 2.0301, d_an 3.5509, loss 0.0000
+	Step 20/Ep 278, 0.70s, prec 100.00%, sm 99.22%, d_ap 2.1337, d_an 3.5903, loss 0.0009
+Ep 278, 16.25s, prec 99.86%, sm 99.42%, d_ap 2.0731, d_an 3.5821, loss 0.0009
+=====> lr adjusted to 0.0000005261
+	Step 10/Ep 279, 0.70s, prec 100.00%, sm 98.44%, d_ap 2.1432, d_an 3.6896, loss 0.0016
+	Step 20/Ep 279, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0560, d_an 3.6403, loss 0.0000
+Ep 279, 16.28s, prec 99.35%, sm 98.81%, d_ap 2.0754, d_an 3.5849, loss 0.0053
+=====> lr adjusted to 0.0000005024
+	Step 10/Ep 280, 0.70s, prec 99.22%, sm 99.22%, d_ap 2.0247, d_an 3.5235, loss 0.0053
+	Step 20/Ep 280, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.1426, d_an 3.5442, loss 0.0000
+Ep 280, 16.12s, prec 99.66%, sm 99.01%, d_ap 2.0736, d_an 3.5602, loss 0.0023
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.78%], [cmc1: 100.00%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 100.00%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_280.npz and latest_val.npz
+
+Validation: mAP=99.7838%, Rank-1=100.0000%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=100.0000%
+=====> lr adjusted to 0.0000004798
+	Step 10/Ep 281, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.0905, d_an 3.6677, loss 0.0000
+	Step 20/Ep 281, 0.68s, prec 100.00%, sm 99.22%, d_ap 2.0999, d_an 3.6872, loss 0.0004
+Ep 281, 16.21s, prec 99.93%, sm 99.42%, d_ap 2.0774, d_an 3.5923, loss 0.0008
+=====> lr adjusted to 0.0000004582
+	Step 10/Ep 282, 0.75s, prec 100.00%, sm 99.22%, d_ap 2.1005, d_an 3.6021, loss 0.0011
+	Step 20/Ep 282, 0.71s, prec 100.00%, sm 100.00%, d_ap 2.0926, d_an 3.6661, loss 0.0000
+Ep 282, 16.31s, prec 99.73%, sm 99.01%, d_ap 2.0773, d_an 3.5682, loss 0.0026
+=====> lr adjusted to 0.0000004376
+	Step 10/Ep 283, 0.71s, prec 98.44%, sm 95.31%, d_ap 2.0566, d_an 3.5739, loss 0.0089
+	Step 20/Ep 283, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0131, d_an 3.5002, loss 0.0000
+Ep 283, 16.42s, prec 99.66%, sm 99.12%, d_ap 2.0851, d_an 3.5781, loss 0.0024
+=====> lr adjusted to 0.0000004179
+	Step 10/Ep 284, 0.71s, prec 100.00%, sm 100.00%, d_ap 2.0699, d_an 3.6467, loss 0.0000
+	Step 20/Ep 284, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0832, d_an 3.7172, loss 0.0000
+Ep 284, 16.30s, prec 99.90%, sm 99.49%, d_ap 2.0786, d_an 3.5939, loss 0.0013
+=====> lr adjusted to 0.0000003991
+	Step 10/Ep 285, 0.69s, prec 100.00%, sm 99.22%, d_ap 2.1576, d_an 3.5997, loss 0.0007
+	Step 20/Ep 285, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0329, d_an 3.5498, loss 0.0000
+Ep 285, 16.28s, prec 99.63%, sm 99.25%, d_ap 2.0848, d_an 3.5907, loss 0.0026
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.79%], [cmc1: 100.00%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 100.00%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_285.npz and latest_val.npz
+
+Validation: mAP=99.7945%, Rank-1=100.0000%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=100.0000%
+New best mAP: 0.997945 -> saving best checkpoint to EXPERIMENT_DIRECTORY/ckpt_best.pth
+=====> lr adjusted to 0.0000003811
+	Step 10/Ep 286, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.1135, d_an 3.6477, loss 0.0000
+	Step 20/Ep 286, 0.69s, prec 98.44%, sm 98.44%, d_ap 2.1218, d_an 3.4763, loss 0.0084
+Ep 286, 16.27s, prec 99.76%, sm 99.25%, d_ap 2.0720, d_an 3.5613, loss 0.0016
+=====> lr adjusted to 0.0000003639
+	Step 10/Ep 287, 0.71s, prec 100.00%, sm 98.44%, d_ap 2.1397, d_an 3.4132, loss 0.0028
+	Step 20/Ep 287, 0.68s, prec 99.22%, sm 98.44%, d_ap 2.1264, d_an 3.6401, loss 0.0028
+Ep 287, 16.24s, prec 99.80%, sm 98.85%, d_ap 2.0850, d_an 3.5609, loss 0.0019
+=====> lr adjusted to 0.0000003476
+	Step 10/Ep 288, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.0531, d_an 3.5924, loss 0.0000
+	Step 20/Ep 288, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0553, d_an 3.5139, loss 0.0000
+Ep 288, 16.20s, prec 99.76%, sm 99.05%, d_ap 2.0792, d_an 3.5502, loss 0.0018
+=====> lr adjusted to 0.0000003319
+	Step 10/Ep 289, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0373, d_an 3.5871, loss 0.0000
+	Step 20/Ep 289, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.0464, d_an 3.5845, loss 0.0000
+Ep 289, 16.26s, prec 99.66%, sm 99.32%, d_ap 2.0693, d_an 3.5717, loss 0.0026
+=====> lr adjusted to 0.000000317
+	Step 10/Ep 290, 0.72s, prec 100.00%, sm 100.00%, d_ap 2.0135, d_an 3.7738, loss 0.0000
+	Step 20/Ep 290, 0.70s, prec 100.00%, sm 98.44%, d_ap 2.0467, d_an 3.4891, loss 0.0029
+Ep 290, 16.52s, prec 99.15%, sm 98.57%, d_ap 2.0753, d_an 3.5544, loss 0.0052
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.79%], [cmc1: 100.00%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 100.00%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_290.npz and latest_val.npz
+
+Validation: mAP=99.7911%, Rank-1=100.0000%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=100.0000%
+=====> lr adjusted to 0.0000003027
+	Step 10/Ep 291, 0.71s, prec 100.00%, sm 100.00%, d_ap 2.0683, d_an 3.6001, loss 0.0000
+	Step 20/Ep 291, 0.67s, prec 100.00%, sm 100.00%, d_ap 2.0353, d_an 3.7011, loss 0.0000
+Ep 291, 16.40s, prec 99.83%, sm 99.29%, d_ap 2.0783, d_an 3.6102, loss 0.0014
+=====> lr adjusted to 0.0000002891
+	Step 10/Ep 292, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.1006, d_an 3.5784, loss 0.0000
+	Step 20/Ep 292, 0.71s, prec 96.09%, sm 93.75%, d_ap 2.0357, d_an 3.4127, loss 0.0186
+Ep 292, 16.60s, prec 99.76%, sm 99.22%, d_ap 2.0698, d_an 3.5833, loss 0.0015
+=====> lr adjusted to 0.0000002761
+	Step 10/Ep 293, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.0526, d_an 3.5982, loss 0.0000
+	Step 20/Ep 293, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.1744, d_an 3.5205, loss 0.0000
+Ep 293, 16.25s, prec 99.80%, sm 99.52%, d_ap 2.0836, d_an 3.5918, loss 0.0014
+=====> lr adjusted to 0.0000002637
+	Step 10/Ep 294, 0.71s, prec 100.00%, sm 100.00%, d_ap 2.0065, d_an 3.6240, loss 0.0000
+	Step 20/Ep 294, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0818, d_an 3.4229, loss 0.0000
+Ep 294, 16.37s, prec 100.00%, sm 99.52%, d_ap 2.0601, d_an 3.5531, loss 0.0006
+=====> lr adjusted to 0.0000002518
+	Step 10/Ep 295, 0.68s, prec 100.00%, sm 100.00%, d_ap 2.0348, d_an 3.7324, loss 0.0000
+	Step 20/Ep 295, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0753, d_an 3.6074, loss 0.0000
+Ep 295, 16.27s, prec 99.73%, sm 99.46%, d_ap 2.0654, d_an 3.5874, loss 0.0020
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.79%], [cmc1: 100.00%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 100.00%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_295.npz and latest_val.npz
+
+Validation: mAP=99.7911%, Rank-1=100.0000%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=100.0000%
+=====> lr adjusted to 0.0000002405
+	Step 10/Ep 296, 0.74s, prec 100.00%, sm 100.00%, d_ap 2.1111, d_an 3.6025, loss 0.0000
+	Step 20/Ep 296, 0.69s, prec 100.00%, sm 100.00%, d_ap 2.0152, d_an 3.4584, loss 0.0000
+Ep 296, 16.40s, prec 99.97%, sm 99.49%, d_ap 2.0812, d_an 3.5742, loss 0.0006
+=====> lr adjusted to 0.0000002296
+	Step 10/Ep 297, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.0528, d_an 3.6609, loss 0.0000
+	Step 20/Ep 297, 0.68s, prec 100.00%, sm 99.22%, d_ap 2.0705, d_an 3.5837, loss 0.0000
+Ep 297, 16.21s, prec 100.00%, sm 99.80%, d_ap 2.0692, d_an 3.5982, loss 0.0001
+=====> lr adjusted to 0.0000002193
+	Step 10/Ep 298, 0.70s, prec 100.00%, sm 100.00%, d_ap 2.1045, d_an 3.6796, loss 0.0000
+	Step 20/Ep 298, 0.68s, prec 100.00%, sm 99.22%, d_ap 2.1324, d_an 3.6302, loss 0.0013
+Ep 298, 16.31s, prec 99.90%, sm 99.52%, d_ap 2.0760, d_an 3.5949, loss 0.0008
+=====> lr adjusted to 0.0000002094
+	Step 10/Ep 299, 0.76s, prec 93.75%, sm 92.19%, d_ap 2.0664, d_an 3.4964, loss 0.0557
+	Step 20/Ep 299, 0.77s, prec 100.00%, sm 100.00%, d_ap 2.0751, d_an 3.6126, loss 0.0000
+Ep 299, 16.54s, prec 99.69%, sm 99.29%, d_ap 2.0711, d_an 3.6210, loss 0.0029
+=====> lr adjusted to 0.0000002
+	Step 10/Ep 300, 0.70s, prec 100.00%, sm 99.22%, d_ap 2.0599, d_an 3.4792, loss 0.0005
+	Step 20/Ep 300, 0.67s, prec 100.00%, sm 100.00%, d_ap 2.0561, d_an 3.6415, loss 0.0000
+Ep 300, 16.28s, prec 100.00%, sm 99.69%, d_ap 2.0645, d_an 3.5928, loss 0.0004
+
+=========> Test on validation set <=========
+
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Single Query:                 [mAP: 99.79%], [cmc1: 100.00%], [cmc5: 100.00%], [cmc10: 100.00%], [mINP: 100.00%]
+Saved validation metrics to EXPERIMENT_DIRECTORY/metrics/val_epoch_300.npz and latest_val.npz
+
+Validation: mAP=99.7887%, Rank-1=100.0000%, Rank-5=100.0000%, Rank-10=100.0000%, mINP=100.0000%
+Testing using best checkpoint: EXPERIMENT_DIRECTORY/ckpt_best.pth
+Warning: failed to load best ckpt for test: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL numpy._core.multiarray.scalar was not an allowed global by default. Please use `torch.serialization.add_safe_globals([numpy._core.multiarray.scalar])` or the `torch.serialization.safe_globals([numpy._core.multiarray.scalar])` context manager to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.
+
+=========> Test on dataset: market1501 <=========
+
+Extracting feature...
+20/1000 batches done, +2.10s, total 2.10s
+[F[K40/1000 batches done, +2.02s, total 4.12s
+[F[K60/1000 batches done, +2.06s, total 6.18s
+[F[K80/1000 batches done, +2.03s, total 8.21s
+[F[K100/1000 batches done, +2.07s, total 10.27s
+[F[K120/1000 batches done, +2.06s, total 12.33s
+[F[K140/1000 batches done, +2.06s, total 14.39s
+[F[K160/1000 batches done, +2.02s, total 16.41s
+[F[K180/1000 batches done, +2.09s, total 18.49s
+[F[K200/1000 batches done, +2.02s, total 20.51s
+[F[K220/1000 batches done, +2.04s, total 22.56s
+[F[K240/1000 batches done, +2.07s, total 24.62s
+[F[K260/1000 batches done, +2.04s, total 26.66s
+[F[K280/1000 batches done, +2.05s, total 28.71s
+[F[K300/1000 batches done, +2.03s, total 30.74s
+[F[K320/1000 batches done, +2.08s, total 32.81s
+[F[K340/1000 batches done, +2.02s, total 34.83s
+[F[K360/1000 batches done, +2.07s, total 36.90s
+[F[K380/1000 batches done, +2.05s, total 38.95s
+[F[K400/1000 batches done, +2.05s, total 41.00s
+[F[K420/1000 batches done, +2.05s, total 43.05s
+[F[K440/1000 batches done, +2.05s, total 45.09s
+[F[K460/1000 batches done, +2.06s, total 47.15s
+[F[K480/1000 batches done, +2.03s, total 49.18s
+[F[K500/1000 batches done, +2.04s, total 51.22s
+[F[K520/1000 batches done, +2.07s, total 53.29s
+[F[K540/1000 batches done, +2.05s, total 55.34s
+[F[K560/1000 batches done, +2.03s, total 57.37s
+[F[K580/1000 batches done, +2.05s, total 59.42s
+[F[K600/1000 batches done, +2.06s, total 61.47s
+[F[K620/1000 batches done, +2.07s, total 63.55s
+[F[K640/1000 batches done, +2.02s, total 65.57s
+[F[K660/1000 batches done, +2.06s, total 67.63s
+[F[K680/1000 batches done, +2.04s, total 69.67s
+[F[K700/1000 batches done, +2.05s, total 71.72s
+[F[K720/1000 batches done, +2.04s, total 73.76s
+[F[K740/1000 batches done, +2.04s, total 75.80s
+[F[K760/1000 batches done, +2.07s, total 77.88s
+[F[K780/1000 batches done, +2.03s, total 79.91s
+[F[K800/1000 batches done, +2.06s, total 81.97s
+[F[K820/1000 batches done, +2.04s, total 84.01s
+[F[K840/1000 batches done, +2.05s, total 86.06s
+[F[K860/1000 batches done, +2.03s, total 88.09s
+[F[K880/1000 batches done, +2.15s, total 90.24s
+[F[K900/1000 batches done, +2.02s, total 92.26s
+[F[K920/1000 batches done, +2.14s, total 94.40s
+[F[K940/1000 batches done, +2.11s, total 96.50s
+[F[K960/1000 batches done, +2.06s, total 98.57s
+[F[K980/1000 batches done, +2.03s, total 100.60s
+[F[K1000/1000 batches done, +1.99s, total 102.59s
+Done, 102.77s
+Computing distance...
+Done, 1.91s
+Computing scores...
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Done, 28.41s
+Single Query:                 [mAP: 75.62%], [cmc1: 89.07%], [cmc5: 95.69%], [cmc10: 97.21%], [mINP: 92.04%]
+Multi Query, Computing distance...
+Done, 1.92s
+Multi Query, Computing scores...
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Done, 28.14s
+Multi Query:                  [mAP: 82.41%], [cmc1: 92.40%], [cmc5: 97.24%], [cmc10: 98.37%], [mINP: 94.59%]
+Re-ranking distance...
+Done, 101.26s
+Computing scores for re-ranked distance...
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Done, 28.79s
+Re-ranked Single Query:       [mAP: 88.21%], [cmc1: 90.94%], [cmc5: 95.46%], [cmc10: 96.50%], [mINP: 93.05%]
+Multi Query, Re-ranking distance...
+Done, 92.11s
+Multi Query, Computing scores for re-ranked distance...
+User Warning: Version 0.18.1 is required for package scikit-learn, your current version is 1.7.1. As a result, the mAP score may not be totally correct. You can try `pip uninstall scikit-learn` and then `pip install scikit-learn==0.18.1`
+Done, 29.18s
+Re-ranked Multi Query:        [mAP: 91.86%], [cmc1: 94.15%], [cmc5: 96.85%], [cmc10: 97.83%], [mINP: 95.40%]
+Saved test metrics to EXPERIMENT_DIRECTORY/metrics/test_market1501.npz

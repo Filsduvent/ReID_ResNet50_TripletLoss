@@ -12,6 +12,10 @@ import os.path as osp
 from os.path import join as ospj
 
 import numpy as np
+from torch.serialization import add_safe_globals
+# allow old numpy scalar pickles produced by earlier torch/np versions
+add_safe_globals([np.core.multiarray.scalar])
+
 import argparse
 
 from tri_loss.dataset import create_dataset
@@ -201,7 +205,7 @@ def main():
   # To first load weights to CPU
   map_location = (lambda storage, loc: storage)
   used_file = cfg.model_weight_file or cfg.ckpt_file
-  loaded = torch.load(used_file, map_location=map_location)
+  loaded = torch.load(used_file, map_location=map_location,weights_only=False)
   if cfg.model_weight_file == '':
     loaded = loaded['state_dicts'][0]
   load_state_dict(model, loaded)

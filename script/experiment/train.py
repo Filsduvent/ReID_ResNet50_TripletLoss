@@ -404,7 +404,7 @@ def main():
       test_set.set_feat_func(ExtractFeature(model_w, TVT))
       print('\n=========> Test on dataset: {} <=========\n'.format(name))
       # test_set.eval prints results
-      mAP, cmc_scores, mINP, mq_mAP, mq_cmc = test_set.eval(
+      mAP, cmc_scores, mINP, mq_mAP, mq_cmc, mq_mINP = test_set.eval(
         normalize_feat=cfg.normalize_feature,
         verbose=True)
       # Save the test metrics to file
